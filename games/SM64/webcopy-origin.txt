@@ -1,0 +1,48 @@
+Uri: https://cdn.jsdelivr.net/npm/sweetalert2@11
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\npm\sweetalert2@11
+Content Type: application/javascript
+
+Uri: https://sm64--js.glitch.me/
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\index.htm
+Content Type: text/html
+
+Uri: https://sm64--js.glitch.me/assets/bg.jpg
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\assets\bg.jpg
+Content Type: image/jpeg
+
+Uri: https://sm64--js.glitch.me/assets/fonts/font.ttf
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\assets\fonts\font.ttf
+Content Type: font/ttf
+
+Uri: https://sm64--js.glitch.me/assets/images/MrIncredible.jpg
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\assets\images\MrIncredible.jpg
+Content Type: image/jpeg
+
+Uri: https://sm64--js.glitch.me/pages/controls.html
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\pages\controls.html
+Content Type: text/html
+
+Uri: https://sm64--js.glitch.me/pages/faq.html
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\pages\faq.html
+Content Type: text/html
+
+Uri: https://sm64--js.glitch.me/pages/guide.html
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\pages\guide.html
+Content Type: text/html
+
+Uri: https://sm64--js.glitch.me/pages/mirrors.html
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\pages\mirrors.html
+Content Type: text/html
+
+Uri: https://sm64--js.glitch.me/pages/mirrors.txt
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\pages\mirrors.txt
+Content Type: text/plain
+
+Uri: https://sm64--js.glitch.me/start.html
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\start.html
+Content Type: text/html
+
+Uri: https://sm64--js.glitch.me/style.css
+File Name: C:\Downloaded Web Sites\sm64--js.glitch.me\style.css
+Content Type: text/css
+
