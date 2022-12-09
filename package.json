@@ -5,8 +5,8 @@
   "main": "index.html",
   "require": ".config",
   "scripts": {
+    "build": "next.js build --output public"
     "start": "serve",
-    "build": "echo This is a static template, there is no bundler or bundling involved!"
   },
   "devDependencies": {
     "serve": "^11.2.0"
