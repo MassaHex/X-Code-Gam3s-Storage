@@ -6,9 +6,9 @@
   "require": ".config",
   "scripts": {
     "build": "next.js build --output public"
-    "start": "serve",
+    "start": "next.js",
   },
   "devDependencies": {
-    "serve": "^11.2.0"
+    "next.js": "^11.2.0"
   }
 }
