@@ -1,0 +1,12 @@
+﻿@font-face {
+  font-family: 'Fjalla One';
+  font-style: normal;
+  font-weight: 400;
+  src: url(s/fjallaone/v13/Yq6R-LCAWCX3-6Ky7FAFrOF6lw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 500;
+  src: url(s/oswald/v49/TK3_WkUHHAIjg75cFRf3bXL8LICs18NvsUZiYA.ttf) format('truetype');
+}
