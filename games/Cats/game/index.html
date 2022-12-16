@@ -1,0 +1,207 @@
+<html lang="en-us">
+
+<head>
+  <script src="../js/helper.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8164232226849069"
+    crossorigin="anonymous"></script>
+  <script>
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw-game.js').then(function (registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+
+  </script>
+  <!--script src="vconsole.min.js"></script>
+  <script>
+      window.vConsole = new VConsole({
+          defaultPlugins: ['system', 'network', 'storage'],
+          maxLogNumber: 10000
+      });
+  </script-->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="canonical" href="https://www.gamepix.com/play/c-a-t-s-the-game/">
+  <meta name="apple-mobile-web-app-title" content="C.A.T.S.">
+  <link href="../assets/apple-bookmark-icon-99d34ce4fc3589e7d2a70422f2ec6cee90b5af571e1fa5b9f06ca890ec2130e2.png"
+    rel="apple-touch-icon" sizes="180x180">
+
+  <title> C.A.T.S. - Web Edition</title>
+  <script>
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent) === false) {
+      document.write('<link rel="manifest" href="manifest-game.json"/>')
+    } else {
+      document.write('<link rel="manifest" href="../manifest.ios.json"/>')
+    }
+  </script>
+  <meta name="description"
+    content="Build the ultimate battle bot from collected parts and unleash its power against other players in automatic PvP fights. Collect, upgrade and combine spare parts to assemble the best combat robot and become the star of the arena.">
+  <meta name="keywords"
+    content="fight, robot, battle, bots, robots, transformer, fighting, boxing, pvp, mech, combat, car, war, cat, games, free">
+  <meta name="theme-color" content="#000000">
+  <meta name="turbolinks-cache-control" content="no-cache">
+  <link href="favicon.ico" rel="shortcut icon">
+  <meta property="og:url" content="index.html">
+  <meta property="og:title" content="C.A.T.S. - Crash Arena Turbo Stars - New action game from Cut the Rope creators">
+  <meta property="og:description"
+    content="Build the ultimate battle bot from collected parts and unleash its power in automatic PvP fights! Visit the site to learn more.">
+  <meta property="og:image" content="assets/cats-bg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="C.A.T.S. - Crash Arena Turbo Stars - New action game from Cut the Rope creators">
+  <meta name="twitter:description"
+    content="Build the ultimate battle bot from collected parts and unleash its power in automatic PvP fights! Visit the site to learn more.">
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WFQB74C');</script>
+  <!-- End Google Tag Manager -->
+  <script type="text/javascript">
+    var appInsights = window.appInsights || function (a) {
+      function b(a) {
+        c[a] = function () {
+          var b = arguments;
+          c.queue.push(function () {c[a].apply(c, b)})
+        }
+      }
+
+      var c = {config: a}, d = document, e = window;
+      setTimeout(function () {
+        var b = d.createElement("script");
+        b.src = a.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js", d.getElementsByTagName("script")[0].parentNode.appendChild(b)
+      });
+      try {c.cookie = d.cookie} catch (a) {}
+      c.queue = [];
+      for (var f = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; f.length;) b("track" + f.pop());
+      if (b("setAuthenticatedUserContext"), b("clearAuthenticatedUserContext"), b("startTrackEvent"), b("stopTrackEvent"), b("startTrackPage"), b("stopTrackPage"), b("flush"), !a.disableExceptionTracking) {
+        f = "onerror", b("_" + f);
+        var g = e[f];
+        e[f] = function (a, b, d, e, h) {
+          var i = g && g(a, b, d, e, h);
+          return !0 !== i && c["_" + f](a, b, d, e, h), i
+        }
+      }
+      return c
+    }({
+      instrumentationKey: "dae16552-4512-437e-ba5d-40336aaa55c7",
+      maxBatchInterval: 30,
+    });
+
+    window.appInsights = appInsights, appInsights.queue && 0 === appInsights.queue.length && appInsights.trackPageView();
+  </script>
+  <script type="text/javascript" src="gamepix-loader.js"></script>
+  <script type="text/javascript" src="../player/ads/smart-ads.min.js"></script>
+  <link rel="stylesheet" media="all" href="../assets/style.css">
+  <script src="../sdks/OneSignalSDK.js" async=""></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+  </script>
+  <style>
+    #canvas {
+      width: 100%;
+      height: 100%;
+      top: 0%;
+      left: 0%;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body class="game-page">
+  <script>
+    //Sentry.init({dsn: 'https://f547698a74084ff8832755337fccbd34@sentry.io/1408398'});
+  </script>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WFQB74C" height="0" width="0"
+      style="display:none;visibility:hidden">
+
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!--div class="fb-loading" id="fb-loading">
+    <div class="fb-gpx-logo">
+        <div class="fb-loader-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+    <div id="loading-bar" class="loading-bar"></div>
+</div-->
+
+  <div class="gpxCatsWebUi-main-container loading-page" id="fb-loading">
+
+    <div class="cats-logo logos">
+      <div class="subline">powered by</div>
+    </div>
+    <div class="container-logos-landscape">
+      <div class="zeptolab-logo logos"></div>
+      <div class="gamepix-logo logos"></div>
+    </div>
+
+    <div class="fb-loader-cube">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+    <div id="loading-bar" class="loading-bar"></div>
+  </div>
+
+  <div id="game-container" class="game-container">
+    <canvas id="canvas"></canvas>
+  </div>
+
+
+  <div id="xl_auth" class="loader"></div>
+  <div class="page-content" id="root"></div>
+  <div id="error-root"></div>
+  <div id="modal-root"></div>
+  <div id="badge-root"></div>
+  <div id="fullscreen-root"></div>
+  <div id="rotate-root"></div>
+  <div id="apple-pay-waiting-root"></div>
+  <div id="device-not-supported-root"></div>
+  <div id="additional-iframe-login-mex" style="display: none;position: fixed;bottom: 0px;width: 100%;height: 50px;">
+    <section class="about" style="
+    min-height: 0px;
+    /* display: table; */
+">
+      <div class="modal-custom animated fadeInUp full-centered" style="
+    height: auto;
+">
+        <div class="title-container">
+          <div class="title"> Log in, save progress &amp; keep playing!</div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div id="debug-root"></div>
+  <script src="../gamepix.js"></script>
+  <script type="text/javascript" src="js/game.js"></script>
+</body>
+
+</html>
