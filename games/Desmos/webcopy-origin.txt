@@ -1,0 +1,104 @@
+Uri: https://s3.amazonaws.com/desmos/img/calc_thumb.png
+File Name: C:\Downloaded Web Sites\www.desmos.com\desmos\img\calc_thumb.png
+Content Type: image/png
+
+Uri: https://www.desmos.com/apple-touch-icon.png
+File Name: C:\Downloaded Web Sites\www.desmos.com\apple-touch-icon.png
+Content Type: image/png
+
+Uri: https://www.desmos.com/assets/build/calculator_desktop-5acbe056e80c4bb321f1f8a9fd25333247b740c6.js
+File Name: C:\Downloaded Web Sites\www.desmos.com\assets\build\calculator_desktop-5acbe056e80c4bb321f1f8a9fd25333247b740c6.js
+Content Type: application/javascript
+
+Uri: https://www.desmos.com/assets/build/calculator_desktop-eec7e8b76ad02e094725a486109a5ae144551a52.css
+File Name: C:\Downloaded Web Sites\www.desmos.com\assets\build\calculator_desktop-eec7e8b76ad02e094725a486109a5ae144551a52.css
+Content Type: text/css
+
+Uri: https://www.desmos.com/assets/img/apps/graphing/favicon.ico
+File Name: C:\Downloaded Web Sites\www.desmos.com\assets\img\apps\graphing\favicon.ico
+Content Type: image/x-icon
+
+Uri: https://www.desmos.com/assets/pwa/app.webmanifest
+File Name: C:\Downloaded Web Sites\www.desmos.com\assets\pwa\app.webmanifest
+Content Type: application/octet-stream
+
+Uri: https://www.desmos.com/calculator
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=de
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-1.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=es
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-2.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=et
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-3.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=fr
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-4.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=id
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-5.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=it
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-6.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=ja
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-7.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=ko
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-8.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=nl
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-9.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=pl
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-10.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=pt-BR
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-11.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=ru
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-12.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=sv-SE
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-13.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=th
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-14.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=tr
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-15.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=uk
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-16.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=vi
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-17.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=zh-CN
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-18.html
+Content Type: text/html
+
+Uri: https://www.desmos.com/calculator?lang=zh-TW
+File Name: C:\Downloaded Web Sites\www.desmos.com\calculator-19.html
+Content Type: text/html
+
