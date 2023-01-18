@@ -19,7 +19,7 @@ function startSearch() {
   input = document.getElementById("mySearch");
   filter = input.value.toUpperCase();
   ul = document.getElementById("search");
-  li = ul.getElementsByTagName("a");
+  li = ul.getElementsByTagName("application");
   for (i = 0; i < li.length; i++) {
     a = li[i].getElementsByTagName("p")[0];
     if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
