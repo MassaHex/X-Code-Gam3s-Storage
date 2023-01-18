@@ -9,13 +9,12 @@ searchInput.addEventListener("keyup", function (event) {
 
 function filterElements() {
     const searchValue = searchInput.value.toLowerCase();
-    const elements = document.getElementsByClassName("element");
-    Array.from(elements).forEach(function(element) {
+    const elements = document.querySelectorAll(".element");
+    elements.forEach(function(element) {
         if (element.getAttribute("data-name").toLowerCase().includes(searchValue)) {
-            element.style.display = "block";
+            element.classList.remove("hidden");
         } else {
-            element.style.display = "none";
+            element.classList.add("hidden");
         }
     });
 }
-
