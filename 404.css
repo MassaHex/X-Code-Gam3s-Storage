@@ -1,0 +1,25 @@
+.Custom-Go-Back {
+background-color: pink;
+border-radius: 3px;
+color: black;
+padding: 10%;
+transition: padding .5s;
+text-decoration: none;
+}
+
+.Custom-Go-Back:hover {
+background-color: pink;
+border-radius: 3px;
+color: black;
+padding: 15%;
+text-decoration: none;
+}
+
+.Custom-Go-Back:active {
+background-color: pink;
+border-radius: 3px;
+color: black;
+padding: 1%;
+text-decoration: none;
+}
+
