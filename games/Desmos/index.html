@@ -3,7 +3,41 @@
 
 <html no_gl="true" lang="en" class="dcg-calculator-api-container">
 <head>
+<script>
+  window.onload = function() {
+    var button = document.createElement("div");
+    button.id = "x-button";
+    button.innerHTML = "x";
+    button.title = "Close App";
+    button.style.cssText = `
+    position: fixed;
+    top: 20px;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.5s ease-in-out;
+    border-radius: 5px;`;
 
+    document.body.appendChild(button);
+
+    setTimeout(() => {
+        button.style.left = "20px";
+        button.style.opacity = "0.8";
+    }, 300);
+
+    button.addEventListener("click", function() {
+      window.location.href = "/";
+    });
+  }
+</script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
   <!--chrome=1 enables chrome frame; IE=edge specifies that IE should run in the highest mode available to that version of IE.-->
