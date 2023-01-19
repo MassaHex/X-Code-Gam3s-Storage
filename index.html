@@ -5,9 +5,10 @@
     var currentUrl = window.location.href;
     var blockedUrl = "about:blank";
     if (currentUrl.indexOf(blockedUrl) === -1) {
-        alert("𝗗𝗢 𝗡𝗢𝗧 𝗖𝗟𝗢𝗦𝗘 𝗧𝗛𝗜𝗦 𝗪𝗜𝗡𝗗𝗢𝗪 𝗢𝗨𝗧. Before you reload after enabling pop-ups windows please press Ok before hand. Please enable pop-up windows to continue using this website if not this website will be replaced with google.com and you will have revoked access. To enable pop-up windows press the lock in the top left corner of the website, press site settings, enable pop-up windows and return to this site. Keep in mind this script is fairly new and may have bugs please report any to my discord at https://discord.gg/buw7emM. When using this site you will not be able to use the back buttton so to return to the homepage just type the url again.");
         var newTab = window.open('','_blank');
-        if (newTab != null) {
+        if (newTab == null) {
+            alert("𝗗𝗢 𝗡𝗢𝗧 𝗖𝗟𝗢𝗦𝗘 𝗧𝗛𝗜𝗦 𝗪𝗜𝗡𝗗𝗢𝗪 𝗢𝗨𝗧. Before you reload after enabling pop-ups windows please press Ok before hand. Please enable pop-up windows to continue using this website if not this website will be replaced with google.com and you will have revoked access. To enable pop-up windows press the lock in the top left corner of the website, press site settings, enable pop-up windows and return to this site. Keep in mind this script is fairly new and may have bugs please report any to my discord at https://discord.gg/buw7emM. When using this site you will not be able to use the back buttton so to return to the homepage just type the url again.");
+        } else {
             window.location.replace("https://www.google.com");
             newTab.location.href = "about:blank";
             newTab.document.write('<iframe src="https://xcde.pages.dev/" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>');
