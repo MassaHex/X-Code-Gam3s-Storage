@@ -1,60 +1,14 @@
 <html>
   <head>
-    <script>
-  window.onload = function() {
-    var button = document.createElement("div");
-    button.id = "x-button";
-    button.innerHTML = "x";
-    button.title = "Close App";
-    button.style.cssText = `
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 40px;
-    height: 40px;
-    background-color: black;
-    color: white;
-    font-size: 30px;
-    font-family: sans-serif;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-    opacity: 0.8;
-    user-select: none;
-    transition: all 0.5s ease-in-out;
-    border-radius: 5px;`;
-
-    document.body.appendChild(button);
-
-    var followCursor = false;
-    document.addEventListener("mousedown", function(e) {
-        if (e.button === 0) {
-            followCursor = true;
-            document.body.style.cursor = "move";
-        }
-    });
-    document.addEventListener("mouseup", function(e) {
-        if (e.button === 0) {
-            followCursor = false;
-            document.body.style.cursor = "default";
-        }
-    });
-
-    document.addEventListener("mousemove", function(e) {
-        if (followCursor) {
-            button.style.left = e.clientX + "px";
-            button.style.top = e.clientY + "px";
-        }
-    });
-    document.addEventListener("mouseleave", function() {
-        if (followCursor) {
-            document.body.style.cursor = "move";
-        }
-    });
-    button.addEventListener("click", function() {
-      window.location.href = "/";
-    });
+    <script>function createAlert() {
+  var confirm = window.confirm("𝗪𝗔𝗥𝗡𝗜𝗡𝗚!!\n\nThis game does not support a back button so if you continue you will have to retype the url in the url box.\nPress Ok to continue or Press Cancel to go back to the homepage.");
+  if (confirm == true) {
+    // do nothing
+  } else {
+    window.location.href = "/";
   }
+}
+
 </script>
     <script id="gamemonetize-sdk" type="text/javascript" src="js/sdk.js"></script>
     <meta charset="utf-8" />
