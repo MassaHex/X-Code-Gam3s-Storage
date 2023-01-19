@@ -9,7 +9,7 @@
     button.style.cssText = `
     position: fixed;
     top: 20px;
-    left: -40px;
+    left: 20px;
     width: 40px;
     height: 40px;
     background-color: black;
@@ -19,17 +19,38 @@
     text-align: center;
     line-height: 40px;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.8;
+    user-select: none;
     transition: all 0.5s ease-in-out;
     border-radius: 5px;`;
 
     document.body.appendChild(button);
 
-    setTimeout(() => {
-        button.style.left = "20px";
-        button.style.opacity = "0.8";
-    }, 300);
+    var followCursor = false;
+    document.addEventListener("mousedown", function(e) {
+        if (e.button === 0) {
+            followCursor = true;
+            document.body.style.cursor = "move";
+        }
+    });
+    document.addEventListener("mouseup", function(e) {
+        if (e.button === 0) {
+            followCursor = false;
+            document.body.style.cursor = "default";
+        }
+    });
 
+    document.addEventListener("mousemove", function(e) {
+        if (followCursor) {
+            button.style.left = e.clientX + "px";
+            button.style.top = e.clientY + "px";
+        }
+    });
+    document.addEventListener("mouseleave", function() {
+        if (followCursor) {
+            document.body.style.cursor = "move";
+        }
+    });
     button.addEventListener("click", function() {
       window.location.href = "/";
     });
