@@ -36,14 +36,18 @@ function FNFPI2() {
 </script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <script>
-    function toggle(elementId) {
-      const element = document.getElementById(elementId);
-      if (element.style.display === "none") {
-        element.style.display = "block";
-      } else {
-        element.style.display = "none";
-      }
+ function search() {
+  var searchInput = document.getElementById("searchInput").value;
+  var searchItems = document.getElementsByClassName("searchItem");
+  
+  for (var i = 0; i < searchItems.length; i++) {
+    if (searchItems[i].getAttribute("label").toLowerCase().indexOf(searchInput.toLowerCase()) > -1) {
+      searchItems[i].style.display = "";
+    } else {
+      searchItems[i].style.display = "none";
     }
+  }
+}
   </script>
   <title>Classlink</title>
   <!--<base href="/">-->
@@ -5600,7 +5604,7 @@ function FNFPI2() {
                 aria-expanded="false">
                 <cl-input _ngcontent-phf-c116="" class="primary-color" id="mySearch" _nghost-phf-c47="">
                   <!---->
-                  <div _ngcontent-phf-c47="" class="input-ctnr"><input _ngcontent-phf-c47=""
+                  <div _ngcontent-phf-c47="" class="input-ctnr"><input _ngcontent-phf-c47="" id="searchInput" onkeyup="search()"
                       aria-label="Search All Apps" tabindex="0" data-cy="Input-Input"
                       class="left-icon ng-untouched ng-pristine ng-valid" aria-autocomplete="list" aria-controls="null"
                       style="padding-right: 10px;">
@@ -5756,7 +5760,7 @@ function FNFPI2() {
         
         <!---->
         <!---->
-        <app-apps-container _ngcontent-phf-c128="" tabindex="-1" role="main" clkeyboardnav=""
+        <app-apps-container id="searchResults" _ngcontent-phf-c128="" tabindex="-1" role="main" clkeyboardnav=""
           class="custom-scroll ng-star-inserted" _nghost-phf-c64="">
           <app-folder-view _ngcontent-phf-c64="" _nghost-phf-c62=""
             class="ng-tns-c62-14 ng-trigger ng-trigger-hostEnter" style="opacity: 0; pointer-events: none;">
@@ -5794,8 +5798,8 @@ function FNFPI2() {
             <!---->
             <!---->
           </app-folder-view>
-                    <application _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted"
-            _nghost-phf-c61="" aria-label="Big Ideas Math (OAuth2)"
+                    <application _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem"
+            _nghost-phf-c61="" label="Example App (Lock And Key)"
             aria-describedby="652890_favorited 652890_autolaunch 652890_locked 652890_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border"><span _ngcontent-phf-c61=""
@@ -5832,8 +5836,8 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-          <application _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted"
-            _nghost-phf-c61="" aria-label="Achieve3000"
+          <application _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem"
+            _nghost-phf-c61="" label="Example App (Key And No Lock)"
             aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border"><span _ngcontent-phf-c61=""
@@ -5857,8 +5861,8 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-                    <application onclick="window.open ('https://xcde.pages.dev/games/SM64', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted"
-            _nghost-phf-c61="" aria-label="Achieve3000"
+                    <application onclick="window.open ('https://xcde.pages.dev/games/SM64', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem"
+            _nghost-phf-c61="" label="SM64"
             aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
@@ -5876,8 +5880,8 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-          <application onclick="window.open ('https://ansccss.pages.dev/big-ideas-math-answers-grade-8-chapter-4/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted"
-            _nghost-phf-c61="" aria-label="Achieve3000"
+          <application onclick="window.open ('https://ansccss.pages.dev/big-ideas-math-answers-grade-8-chapter-4/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem"
+            _nghost-phf-c61="" label="CCSSAnswers"
             aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border"><span _ngcontent-phf-c61=""
@@ -5901,8 +5905,8 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-          <application onclick="window.open ('https://xcde.pages.dev/games/Basket%20Ball%20Stars/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted"
-            _nghost-phf-c61="" aria-label="Achieve3000"
+          <application onclick="window.open ('https://xcde.pages.dev/games/Basket%20Ball%20Stars/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem"
+            _nghost-phf-c61="" label="Basketball Stars"
             aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
@@ -5925,7 +5929,7 @@ function FNFPI2() {
           <!---->
           <!---->
           <!---->
-          <application onclick="window.open ('https://xcde.pages.dev/games/Slope/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Slope" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+          <application onclick="window.open ('https://xcde.pages.dev/games/Slope/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Slope" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/Slope.png">
@@ -5941,7 +5945,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-                    <application onclick="window.open ('https://xcde.pages.dev/games/Drag%20Racing%20Rivals/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Slope" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+                    <application onclick="window.open ('https://xcde.pages.dev/games/Drag%20Racing%20Rivals/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Drag Racing Rivals" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/DRR.png">
@@ -5957,7 +5961,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-                    <application onclick="window.open ('https://xcde.pages.dev/games/Run3/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+                    <application onclick="window.open ('https://xcde.pages.dev/games/Run3/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/Run3.png">
@@ -5973,7 +5977,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-                    <application onclick="window.open ('https://xcde.pages.dev/games/Moto-X3M/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+                    <application onclick="window.open ('https://xcde.pages.dev/games/Moto-X3M/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Moto-X3M" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/MXM.png">
@@ -5989,7 +5993,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-    <application onclick="window.open ('https://xcde.pages.dev/games/GetawayShootout/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+    <application onclick="window.open ('https://xcde.pages.dev/games/GetawayShootout/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="GetawayShootout" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/GSG.png">
@@ -6005,7 +6009,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-    <application onclick="window.open ('https://xcde.pages.dev/games/Wordle/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+    <application onclick="window.open ('https://xcde.pages.dev/games/Wordle/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Wordle" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/Wordle.png">
@@ -6021,7 +6025,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-              <application onclick="window.open ('https://xcde.pages.dev/games/Desmos/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+              <application onclick="window.open ('https://xcde.pages.dev/games/Desmos/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Desmos Graphing Calculator" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/DSMO.png">
@@ -6038,7 +6042,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-                        <application onclick="window.open ('https://xcde.pages.dev/games/Tetris/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+                        <application onclick="window.open ('https://xcde.pages.dev/games/Tetris/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Tetris" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/TET.png">
@@ -6054,7 +6058,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-                        <application onclick="window.open ('https://xcde.pages.dev/games/BTD4/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+                        <application onclick="window.open ('https://xcde.pages.dev/games/BTD4/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="BloonsTD4" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/BTD4.png">
@@ -6070,7 +6074,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-                                  <application onclick="FNFPI2()" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+                                  <application onclick="FNFPI2()" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" aria-label="Paper.io 2" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/PIO2.png">
@@ -6086,7 +6090,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-          <application onclick="window.open ('https://xcde.pages.dev/games/Awesome Tanks 2/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+          <application onclick="window.open ('https://xcde.pages.dev/games/Awesome Tanks 2/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Awesome Tanks 2" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/AT2.png">
@@ -6102,7 +6106,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-          <application onclick="window.open ('https://xcde.pages.dev/games/Jetpack Joyride/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+          <application onclick="window.open ('https://xcde.pages.dev/games/Jetpack Joyride/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Jetpack Joyride" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/JPJR.png">
@@ -6118,8 +6122,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-                    </application>
-          <application onclick="window.open ('https://xcde.pages.dev/games/BitLife/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+          <application onclick="window.open ('https://xcde.pages.dev/games/BitLife/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="BitLife" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/BLIFE.png">
@@ -6135,7 +6138,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-    <application onclick="window.open ('https://xcde.pages.dev/games/StickManHook/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+    <application onclick="window.open ('https://xcde.pages.dev/games/StickManHook/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="StickManHook" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/STIMANHO.png">
@@ -6151,7 +6154,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-        <application onclick="window.open ('https://xcde.pages.dev/games/Vex3/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+        <application onclick="window.open ('https://xcde.pages.dev/games/Vex3/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Vex3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/Vex3.png">
@@ -6167,7 +6170,7 @@ function FNFPI2() {
             <!---->
             <!---->
           </application>
-            <application onclick="window.open ('https://xcde.pages.dev/games/Bookmarklets/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted" _nghost-phf-c61="" aria-label="Run3" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+            <application onclick="window.open ('https://xcde.pages.dev/games/Bookmarklets/', '_self')" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Bookmarklets" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/NA.png">
