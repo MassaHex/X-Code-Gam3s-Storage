@@ -6,6 +6,22 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
+    window.onload = function() {
+    // Get the openprofile and the profile you want to change
+const openprofile = document.getElementById("openprofile");
+const profile = document.getElementById("profile");
+
+// Add a click event listener to the button
+openprofile.addEventListener("click", function() {
+  if (profile.style.display === "none") {
+    profile.style.display = "";
+  } else {
+    profile.style.display = "none";
+  }
+}
+)};
+  </script>
+<script>
    function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -53,22 +69,6 @@ function deleteCookie(cname) {
     }
   }
  }
-  </script>
-  <script>
-    window.onload = function() {
-    // Get the openprofile and the profile you want to change
-const openprofile = document.getElementById("openprofile");
-const profile = document.getElementById("profile");
-
-// Add a click event listener to the button
-openprofile.addEventListener("click", function() {
-  if (profile.style.display === "none") {
-    profile.style.display = "";
-  } else {
-    profile.style.display = "none";
-  }
-}
-)};
   </script>
   <title>Classlink</title>
   <!--<base href="/">-->
