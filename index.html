@@ -40,6 +40,7 @@ function deleteCookie(cname) {
 }
 </script>
   <script>
+ window.onload = function() {
  function search() {
   var searchInput = document.getElementById("searchInput").value;
   var searchItems = document.getElementsByClassName("searchItem");
@@ -51,7 +52,7 @@ function deleteCookie(cname) {
       searchItems[i].style.display = "none";
     }
   }
-}
+ }
   </script>
   <script>
     window.onload = function() {
