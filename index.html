@@ -54,19 +54,6 @@ function deleteCookie(cname) {
 }
   </script>
   <script>
-    window.onload = function(){
-        // Get the element you want to change the opacity of
-        var splashScreen = document.getElementById("splashscreen");
-        // Set the initial opacity to 1
-        splashScreen.style.opacity = 1;
-
-        setTimeout(function(){
-            // After 1 second has passed, set the opacity to 0
-            splashScreen.style.opacity = 0;
-        }, 1000);
-    }
-</script>
-  <script>
     window.onload = function() {
     // Get the openprofile and the profile you want to change
 const openprofile = document.getElementById("openprofile");
@@ -5265,7 +5252,7 @@ openprofile.addEventListener("click", function() {
     <router-outlet _ngcontent-phf-c58=""></router-outlet>
     <secure _nghost-phf-c128="" class="ng-star-inserted">
       <app-app-loader _ngcontent-phf-c128="" _nghost-phf-c65="" class="ng-tns-c65-0">
-        <div id="splashscreen" style="opacity:1;" _ngcontent-phf-c65="" class="app-loader ng-tns-c65-0 fade-out" aria-hidden="true">
+        <div id="splashscreen" style="opacity:0;" _ngcontent-phf-c65="" class="app-loader ng-tns-c65-0 fade-out" aria-hidden="true">
           <div _ngcontent-phf-c65=""
             class="custom-logo-ctnr ng-tns-c65-0 ng-trigger ng-trigger-fadeInOut ng-star-inserted">
             <div _ngcontent-phf-c65=""
