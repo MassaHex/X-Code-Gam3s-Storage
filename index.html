@@ -5,10 +5,6 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <script>
-        window.history.pushState("", "", "/");
-    </script>
 <script>
    function getCookie(cname) {
   var name = cname + "=";
@@ -43,6 +39,19 @@ function deleteCookie(cname) {
   document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 </script>
+    <script>
+    window.onload = function(){
+        // Get the element you want to change the opacity of
+        var splashScreen = document.getElementById("splashscreen");
+        // Set the initial opacity to 1
+        splashScreen.style.opacity = 1;
+
+        setTimeout(function(){
+            // After 1 second has passed, set the opacity to 0
+            splashScreen.style.opacity = 0;
+        }, 1000);
+    }
+</script>
   <script>
  function search() {
   var searchInput = document.getElementById("searchInput").value;
@@ -57,19 +66,6 @@ function deleteCookie(cname) {
   }
 }
   </script>
-  <script>
-    window.onload = function(){
-        // Get the element you want to change the opacity of
-        var splashScreen = document.getElementById("splashscreen");
-        // Set the initial opacity to 1
-        splashScreen.style.opacity = 1;
-
-        setTimeout(function(){
-            // After 1 second has passed, set the opacity to 0
-            splashScreen.style.opacity = 0;
-        }, 1000);
-    }
-</script>
   <script>
     window.onload = function() {
     // Get the openprofile and the profile you want to change
