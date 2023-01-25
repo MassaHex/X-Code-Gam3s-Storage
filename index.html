@@ -58,6 +58,19 @@ function deleteCookie(cname) {
 }
   </script>
   <script>
+    window.onload = function(){
+        // Get the element you want to change the opacity of
+        var splashScreen = document.getElementById("splashscreen");
+        // Set the initial opacity to 1
+        splashScreen.style.opacity = 1;
+
+        setTimeout(function(){
+            // After 1 second has passed, set the opacity to 0
+            splashScreen.style.opacity = 0;
+        }, 1000);
+    }
+</script>
+  <script>
     window.onload = function() {
     // Get the openprofile and the profile you want to change
 const openprofile = document.getElementById("openprofile");
@@ -73,19 +86,6 @@ openprofile.addEventListener("click", function() {
 }
 )};
   </script>
-  <script>
-    window.onload = function(){
-        // Get the element you want to change the opacity of
-        var splashScreen = document.getElementById("splashscreen");
-        // Set the initial opacity to 1
-        splashScreen.style.opacity = 1;
-
-        setTimeout(function(){
-            // After 1 second has passed, set the opacity to 0
-            splashScreen.style.opacity = 0;
-        }, 1000);
-    }
-</script>
   <title>Classlink</title>
   <!--<base href="/">-->
   <base href=".">
