@@ -39,19 +39,6 @@ function deleteCookie(cname) {
   document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 </script>
-    <script>
-    window.onload = function(){
-        // Get the element you want to change the opacity of
-        var splashScreen = document.getElementById("splashscreen");
-        // Set the initial opacity to 1
-        splashScreen.style.opacity = 1;
-
-        setTimeout(function(){
-            // After 1 second has passed, set the opacity to 0
-            splashScreen.style.opacity = 0;
-        }, 1000);
-    }
-</script>
   <script>
  function search() {
   var searchInput = document.getElementById("searchInput").value;
@@ -5261,6 +5248,19 @@ openprofile.addEventListener("click", function() {
 </head>
 
 <body class="/*cl-material*/" data-new-gr-c-s-check-loaded="14.1026.0" data-gr-ext-installed="" style="">
+      <script>
+    window.onload = function(){
+        // Get the element you want to change the opacity of
+        var splashScreen = document.getElementById("splashscreen");
+        // Set the initial opacity to 1
+        splashScreen.style.opacity = 1;
+
+        setTimeout(function(){
+            // After 1 second has passed, set the opacity to 0
+            splashScreen.style.opacity = 0;
+        }, 1000);
+    }
+</script>
   <app-root _nghost-phf-c58="" ng-version="10.2.3">
     <router-outlet _ngcontent-phf-c58=""></router-outlet>
     <secure _nghost-phf-c128="" class="ng-star-inserted">
