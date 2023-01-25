@@ -75,13 +75,11 @@ openprofile.addEventListener("click", function() {
   </script>
   <script>
 window.onload = function() {
-    var splashScreen = document.getElementById("splashscreen");
-    splashScreen.style.opacity = 1;
-    window.addEventListener("load", function() {
+      var splashScreen = document.getElementById("splashscreen");
+    // Use setTimeout to delay the fading out of the element for 1 second
+    setTimeout(function(){
         splashScreen.style.opacity = 0;
-    });
-}
-
+    }, 1000); // 1000 milliseconds = 1 second
 </script>
 
   <title>Classlink</title>
@@ -5267,7 +5265,7 @@ window.onload = function() {
     <router-outlet _ngcontent-phf-c58=""></router-outlet>
     <secure _nghost-phf-c128="" class="ng-star-inserted">
       <app-app-loader _ngcontent-phf-c128="" _nghost-phf-c65="" class="ng-tns-c65-0">
-        <div id="splashscreen" style="opacity:0;" _ngcontent-phf-c65="" class="app-loader ng-tns-c65-0 fade-out" aria-hidden="true">
+        <div id="splashscreen" style="opacity:1;" _ngcontent-phf-c65="" class="app-loader ng-tns-c65-0 fade-out" aria-hidden="true">
           <div _ngcontent-phf-c65=""
             class="custom-logo-ctnr ng-tns-c65-0 ng-trigger ng-trigger-fadeInOut ng-star-inserted">
             <div _ngcontent-phf-c65=""
