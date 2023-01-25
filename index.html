@@ -74,16 +74,14 @@ openprofile.addEventListener("click", function() {
 )};
   </script>
   <script>
-    // Get the element you want to change the opacity of
+window.onload = function() {
     var splashScreen = document.getElementById("splashscreen");
-    // Set the initial opacity to 1
     splashScreen.style.opacity = 1;
-
-    // Listen for the `load` event on the window object
     window.addEventListener("load", function() {
-        // When the page has fully loaded, set the opacity to 0
         splashScreen.style.opacity = 0;
     });
+}
+
 </script>
 
   <title>Classlink</title>
