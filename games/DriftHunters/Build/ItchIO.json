@@ -1,6 +1,6 @@
 {
 "TOTAL_MEMORY": 1073741824,
-"dataUrl": "https://firebasestorage.googleapis.com/v0/b/fir-test-f2c71.appspot.com/o/ItchIO.data.unityweb?alt=media&token=85e0c974-db11-43e4-aa34-bafc1c95d455",
+"dataUrl": "https://fir-test-f2c71.firebaseapp.com/Storage/ItchIO.data.unityweb",
 "asmCodeUrl": "ItchIO.asm.code.unityweb",
 "asmMemoryUrl": "ItchIO.asm.memory.unityweb",
 "asmFrameworkUrl": "ItchIO.asm.framework.unityweb",
