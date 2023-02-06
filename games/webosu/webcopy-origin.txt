@@ -1,0 +1,120 @@
+Uri: https://arc.io/widget.min.js
+File Name: C:\Downloaded Web Sites\webosu.online\widget.min.js
+Content Type: application/javascript
+
+Uri: https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap
+File Name: C:\Downloaded Web Sites\webosu.online\css2
+Content Type: text/css
+
+Uri: https://fonts.gstatic.com/s/comfortaa/v40/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4bbLPrQ.ttf
+File Name: C:\Downloaded Web Sites\webosu.online\s\comfortaa\v40\1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4bbLPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/comfortaa/v40/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4TbMPrQ.ttf
+File Name: C:\Downloaded Web Sites\webosu.online\s\comfortaa\v40\1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4TbMPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/comfortaa/v40/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4VrMPrQ.ttf
+File Name: C:\Downloaded Web Sites\webosu.online\s\comfortaa\v40\1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4VrMPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/comfortaa/v40/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4WjMPrQ.ttf
+File Name: C:\Downloaded Web Sites\webosu.online\s\comfortaa\v40\1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4WjMPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/comfortaa/v40/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4Y_LPrQ.ttf
+File Name: C:\Downloaded Web Sites\webosu.online\s\comfortaa\v40\1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4Y_LPrQ.ttf
+Content Type: font/ttf
+
+Uri: https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993
+File Name: C:\Downloaded Web Sites\webosu.online\beacon.min.js\vaafb692b2aea4879b33c060e79fe94621666317369993
+Content Type: text/javascript
+
+Uri: https://webosu.online/
+File Name: C:\Downloaded Web Sites\webosu.online\index.htm
+Content Type: text/html
+
+Uri: https://webosu.online/css/Comfortaa.woff2
+File Name: C:\Downloaded Web Sites\webosu.online\css\Comfortaa.woff2
+Content Type: font/woff2
+
+Uri: https://webosu.online/css/cursor.cur
+File Name: C:\Downloaded Web Sites\webosu.online\css\cursor.cur
+Content Type: application/octet-stream
+
+Uri: https://webosu.online/css/font.css
+File Name: C:\Downloaded Web Sites\webosu.online\css\font.css
+Content Type: text/css
+
+Uri: https://webosu.online/css/fontello.ttf
+File Name: C:\Downloaded Web Sites\webosu.online\css\fontello.ttf
+Content Type: font/ttf
+
+Uri: https://webosu.online/css/main.css
+File Name: C:\Downloaded Web Sites\webosu.online\css\main.css
+Content Type: text/css
+
+Uri: https://webosu.online/css/picnic.min.css
+File Name: C:\Downloaded Web Sites\webosu.online\css\picnic.min.css
+Content Type: text/css
+
+Uri: https://webosu.online/history.html
+File Name: C:\Downloaded Web Sites\webosu.online\history.html
+Content Type: text/html
+
+Uri: https://webosu.online/hot.html
+File Name: C:\Downloaded Web Sites\webosu.online\hot.html
+Content Type: text/html
+
+Uri: https://webosu.online/img/favicon.png
+File Name: C:\Downloaded Web Sites\webosu.online\img\favicon.png
+Content Type: image/webp
+
+Uri: https://webosu.online/index.html
+File Name: C:\Downloaded Web Sites\webosu.online\index.html
+Content Type: text/html
+
+Uri: https://webosu.online/js/addbeatmaplist.js
+File Name: C:\Downloaded Web Sites\webosu.online\js\addbeatmaplist.js
+Content Type: application/javascript
+
+Uri: https://webosu.online/js/downloader.js
+File Name: C:\Downloaded Web Sites\webosu.online\js\downloader.js
+Content Type: application/javascript
+
+Uri: https://webosu.online/js/jsloader.js
+File Name: C:\Downloaded Web Sites\webosu.online\js\jsloader.js
+Content Type: application/javascript
+
+Uri: https://webosu.online/js/launchgame.js
+File Name: C:\Downloaded Web Sites\webosu.online\js\launchgame.js
+Content Type: application/javascript
+
+Uri: https://webosu.online/js/lib/localforage.min.js
+File Name: C:\Downloaded Web Sites\webosu.online\js\lib\localforage.min.js
+Content Type: application/javascript
+
+Uri: https://webosu.online/js/settings.js
+File Name: C:\Downloaded Web Sites\webosu.online\js\settings.js
+Content Type: application/javascript
+
+Uri: https://webosu.online/local.html
+File Name: C:\Downloaded Web Sites\webosu.online\local.html
+Content Type: text/html
+
+Uri: https://webosu.online/new.html
+File Name: C:\Downloaded Web Sites\webosu.online\new.html
+Content Type: text/html
+
+Uri: https://webosu.online/settings.html
+File Name: C:\Downloaded Web Sites\webosu.online\settings.html
+Content Type: text/html
+
+Uri: https://webosu.online/utilcave_com/inc/ezcl.webp?cb=4
+File Name: C:\Downloaded Web Sites\webosu.online\utilcave_com\inc\ezcl.webp
+Content Type: application/javascript
+
+Uri: https://webosu.online/_vercel/insights/script.js
+File Name: C:\Downloaded Web Sites\webosu.online\_vercel\insights\script.js
+Content Type: application/javascript
+
