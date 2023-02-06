@@ -19,6 +19,32 @@
     <script src="assets/js/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#iG7WX6p8"></script>
     <script defer data-domain="webosu.online" src="https://plausible.io/js/plausible.js"></script>
+    <script type="Javascript">window.onload = function() {
+  var popup = document.createElement("div");
+  popup.id = "popup";
+  popup.innerHTML = "This app works better in fullscreen";
+  popup.style.position = "fixed";
+  popup.style.bottom = "20px";
+  popup.style.left = "-200px";
+  popup.style.backgroundColor = "#9d7dcc";
+  popup.style.padding = "10px";
+  popup.style.color = "white";
+  popup.style.borderRadius = "5px";
+  popup.style.display = "block";
+  popup.style.opacity = 0;
+  popup.style.transition = "all 0.5s ease";
+  document.body.appendChild(popup);
+  
+  setTimeout(function() {
+    popup.style.left = "20px";
+    popup.style.opacity = 1;
+  }, 20);
+  
+  setTimeout(function() {
+    popup.style.left = "-200px";
+    popup.style.opacity = 0;
+  }, 2000);
+};</script>
 </head>
 <!--onload="openModal(modal)"-->
 <body>
