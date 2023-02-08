@@ -23,7 +23,7 @@ if (typeof window !== "undefined" && !window.famobi) {
                         window.famobi_gameJS.unshift("html5games/gameapi/detection.js");
                         window.famobi_gameJS.unshift("html5games/gameapi/zepto.min.js");
                         window.famobi_gameJS.unshift("html5games/gameapi/famobi_analytics_v1.js");
-                        window.famobi_gameJS.unshift("/dist/swag-api.js");
+                        window.famobi_gameJS.unshift("dist/swag-api.js");
 
                         // orientation change
                         window.addEventListener("orientationchange", function() {
