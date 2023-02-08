@@ -1,0 +1,33 @@
+{
+	"features": {
+		"highscores": 1,
+		"leaderboard": 0,
+		"credits": 0,
+		"multiplayer": 0,
+		"rewarded": 0,
+		"standalone": 1,
+		"multiplayer_local": 1
+	},
+	"game_i18n": {},
+	"aid": "A1234-5",
+	"logging": false,
+	"name": "Addicting Games",
+	"more_games_url": "https://www.addictinggames.com",
+	"more_games_button_image": "logo_orange_white",
+	"show_splash": "famobi",
+	"splash_duration": 3000,
+	"showDialog": {
+		"title": "Best Scores",
+		"level_key": "",
+		"period": "alltime",
+		"value_formatter": ""
+	},
+	"branch": "master",
+	"gameParams": {
+		"ad_type": "off"
+	},
+	"api_key": "5d144de4665aa4f640e802ff",
+	"autoShowMenuScreens": ["SCREEN_HOME"],
+	"version": "885bc945",
+	"supportedLanguages": []
+}
