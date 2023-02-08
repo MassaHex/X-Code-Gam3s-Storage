@@ -17,7 +17,7 @@
   \***********************/
 /*! no static exports found */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(e, t) { e.exports = { version: "2.0.7", themes: { shockwave: { apiRoot: "https://archery-world-tour-working.tres3mincraft.repl.co" }, addictinggames: { apiRoot: "https://archery-world-tour-working.tres3mincraft.repl.co" } }, providers: { default: { root: "https://archery-world-tour-working.tres3mincraft.repl.co", current: "/ag-auth/current", login: "/ag-auth/login", logout: "/ag-auth/logout", create: "/ag-auth/create" }, shockwave: { root: "https://archery-world-tour-working.tres3mincraft.repl.co/", current: "/shockwave-auth/current", login: "/shockwave-auth/login", logout: "/shockwave-auth/logout", create: "/shockwave-auth/create" } }, resourceRoot: "https://archery-world-tour-working.tres3mincraft.repl.co/dist/", events: { API_COMMUNICATION_ERROR: "API_COMMUNICATION_ERROR", SESSION_READY: "SESSION_READY", DIALOG_CLOSED: "DIALOG_CLOSED", INVALID_DIALOG_TYPE: "INVALID_DIALOG_TYPE", ERROR: "ERROR", INVALID_MESSAGE: "INVALID MESSAGE" } } },
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(e, t) { e.exports = { version: "2.0.7", themes: { shockwave: { apiRoot: "/games/Archery World Tour" }, addictinggames: { apiRoot: "/games/Archery World Tour" } }, providers: { default: { root: "/games/Archery World Tour", current: "/ag-auth/current", login: "/ag-auth/login", logout: "/ag-auth/logout", create: "/ag-auth/create" }, shockwave: { root: "/games/Archery World Tour", current: "/shockwave-auth/current", login: "/shockwave-auth/login", logout: "/shockwave-auth/logout", create: "/shockwave-auth/create" } }, resourceRoot: "/games/Archery World Tour/dist/", events: { API_COMMUNICATION_ERROR: "API_COMMUNICATION_ERROR", SESSION_READY: "SESSION_READY", DIALOG_CLOSED: "DIALOG_CLOSED", INVALID_DIALOG_TYPE: "INVALID_DIALOG_TYPE", ERROR: "ERROR", INVALID_MESSAGE: "INVALID MESSAGE" } } },
 /*!************************!*\
   !*** ./src/session.js ***!
   \************************/
@@ -273,7 +273,7 @@
   \*********************************************************/
 /*! no static exports found */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(e, t, n) { var a = n(/*! ../../../node_modules/handlebars/runtime.js */0); e.exports = (a.default || a).template({ compiler: [7, ">= 4.0.0"], main: function(e, t, n, a, r) { return '<div id="swag-branding-animation-wrapper" class="swag-branding-animation-wrapper"s>\n  <img id="swag-branding-animation" src="https://replit.com/@tres3mincraft/archery-world-tour-working#html5games/images/hlogoex.gif" width="100%" height="auto"/>\n</div>\n' }, useData: !0 }) },
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(e, t, n) { var a = n(/*! ../../../node_modules/handlebars/runtime.js */0); e.exports = (a.default || a).template({ compiler: [7, ">= 4.0.0"], main: function(e, t, n, a, r) { return '<div id="swag-branding-animation-wrapper" class="swag-branding-animation-wrapper"s>\n  <img id="swag-branding-animation" src="/games/Archery World Tour/html5games/images/hlogoex.gif" width="100%" height="auto"/>\n</div>\n' }, useData: !0 }) },
 /*!********************************************************!*\
   !*** ./src/templates/api/dialog-user-login.handlebars ***!
   \********************************************************/
