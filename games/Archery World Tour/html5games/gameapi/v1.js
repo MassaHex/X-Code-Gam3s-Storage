@@ -18,7 +18,7 @@ if (typeof window !== "undefined" && !window.famobi) {
                         this.game.init();
 
                         this.includeCSS("html5games/gameapi/v1/play.css");
-                        this.includeCSS("https://archery-world-tour-working.tres3mincraft.repl.co/dist/swag-api.css");
+                        this.includeCSS("dist/swag-api.css");
 
                         window.famobi_gameJS.unshift("html5games/gameapi/detection.js");
                         window.famobi_gameJS.unshift("html5games/gameapi/zepto.min.js");
