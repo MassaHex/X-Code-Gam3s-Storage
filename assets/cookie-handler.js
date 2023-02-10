@@ -24,7 +24,7 @@ function getCookie(cname) {
 }
 
 // Function to export cookies
-function exportCookies() {
+function ExportCookies() {
   var cookieString = "";
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split(';');
@@ -39,7 +39,7 @@ function exportCookies() {
 }
 
 // Function to import cookies
-function importCookies(file) {
+function ImportCookies(file) {
   var reader = new FileReader();
   reader.onload = function() {
     var lines = reader.result.split("\n");
