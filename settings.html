@@ -3,87 +3,99 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
   <script>  function getMainSave() {
     var mainSave = {};
-  
+
     var localStorageDontSave = ["theme", "tab", "nebelung"];
-  
+
     localStorageSave = Object.entries(localStorage);
-  
+
     for (let entry in localStorageSave) {
-      if (localStorageDontSave.includes(localStorageSave[entry][0])) {
-        localStorageSave.splice(entry, 1);
-      }
+        if (localStorageDontSave.includes(localStorageSave[entry][0])) {
+            localStorageSave.splice(entry, 1);
+        }
     }
-  
-    localStorageSave = btoa(JSON.stringify(localStorageSave));
-  
+
+    localStorageSave = new TextEncoder().encode(JSON.stringify(localStorageSave));
+    localStorageSave = Array.from(localStorageSave, function(ch) {
+        return ch.toString(16);
+    }).join('');
+
     mainSave.localStorage = localStorageSave;
-  
+
     cookiesSave = document.cookie;
-  
-    cookiesSave = btoa(cookiesSave);
-  
+
+    cookiesSave = new TextEncoder().encode(cookiesSave);
+    cookiesSave = Array.from(cookiesSave, function(ch) {
+        return ch.toString(16);
+    }).join('');
+
     mainSave.cookies = cookiesSave;
-  
-    mainSave = btoa(JSON.stringify(mainSave));
-  
+
+    mainSave = new TextEncoder().encode(JSON.stringify(mainSave));
+    mainSave = Array.from(mainSave, function(ch) {
+        return ch.toString(16);
+    }).join('');
+
     mainSave = CryptoJS.AES.encrypt(mainSave, "save").toString();
-  
+
     return mainSave;
-  }
-  
-  function downloadMainSave() {
-    var data = new Blob([getMainSave()]);
-    var dataURL = URL.createObjectURL(data);
-  
-    var fakeElement = document.createElement("a");
-    fakeElement.href = dataURL;
-    fakeElement.download = "projects.save";
-    fakeElement.click();
-    URL.revokeObjectURL(dataURL);
-  }
-  
-  function getMainSaveFromUpload(data) {
+}
+
+function getMainSaveFromUpload(data) {
     data = CryptoJS.AES.decrypt(data, "save").toString(CryptoJS.enc.Utf8);
-  
-    var mainSave = JSON.parse(atob(data));
-    var mainLocalStorageSave = JSON.parse(atob(mainSave.localStorage));
-    var cookiesSave = atob(mainSave.cookies);
-  
+
+    var mainSave = new TextDecoder().decode(
+        Uint8Array.from(data.match(/[\da-f]{2}/gi), function(h) {
+            return parseInt(h, 16);
+        })
+    );
+
+    var mainLocalStorageSave = new TextDecoder().decode(
+        Uint8Array.from(mainSave.localStorage.match(/[\da-f]{2}/gi), function(h) {
+            return parseInt(h, 16);
+        })
+    );
+
+    var cookiesSave = new TextDecoder().decode(
+        Uint8Array.from(mainSave.cookies.match(/[\da-f]{2}/gi), function(h) {
+            return parseInt(h, 16);
+        })
+    );
+
     for (let item in mainLocalStorageSave) {
-      localStorage.setItem(mainLocalStorageSave[item][0], mainLocalStorageSave[item][1]);
+        localStorage.setItem(mainLocalStorageSave[item][0], mainLocalStorageSave[item][1]);
     }
-  
+
     document.cookie = cookiesSave;
-  }
-  
-  function uploadMainSave() {
-    var hiddenUpload = document.querySelector(".hiddenUpload");
-    hiddenUpload.click();
-  
-    hiddenUpload.addEventListener("change", function (e) {
-      var files = e.target.files;
-      var file = files[0];
-  
-      if (!file) {
-        return;
-      }
-  
-      var reader = new FileReader();
-  
-      reader.onload = function (e) {
-        getMainSaveFromUpload(e.target.result);
-  
-        var uploadResult = document.querySelector(".uploadResult");
-        uploadResult.innerText = "Uploaded save!";
-        uploadResult.style.display = "initial";
-        setTimeout(function () {
-          uploadResult.style.display = "none";
-        }, 3000);
-      };
-  
-      reader.readAsText(file);
-    });
-  }</script>
+}
+
+function downloadMainSave() {
+    var mainSave = getMainSave();
+    var a = document.createElement("a");
+    a.style.display = "none";
+    a.href = "data:application/octet-stream," + encodeURIComponent(mainSave);
+    a.download = "projects.save";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function() {
+        document.body.removeChild(a)
+    }, 100);
+}
+
+function uploadMainSave() {
+    var input = document.createElement("input");
+    input.type = "file";
+    input.accept = ".save";
+    input.click();
+    input.onchange = function() {
+        var file = input.files[0];
+        var reader = new FileReader();
+        reader.onload = function() {
+            getMainSaveFromUpload(reader.result);
+        };
+        reader.readAsText(file);
+    };
+}
+</script>
   <script>
         window.history.pushState("", "", "/");
     </script>
