@@ -1,0 +1,44 @@
+<html style="background-color: black;">
+
+<head>
+  <title>Gun Mayhem 2</title>
+  <script>
+    window.onload = function () {
+      console.log("window onload function running");
+      var popup = document.createElement("div");
+      popup.id = "popup";
+      popup.innerHTML = "This app works better in fullscreen (Please right click and press Enter Fullscreen)";
+      popup.style.position = "absolute";
+      popup.style.bottom = "20px";
+      popup.style.left = "-200px";
+      popup.style.backgroundColor = "#9d7dcc";
+      popup.style.padding = "10px";
+      popup.style.color = "white";
+      popup.style.borderRadius = "5px";
+      popup.style.display = "block";
+      popup.style.opacity = 0;
+      popup.style.zIndex = 9999;
+      popup.style.transition = "all 0.5s ease";
+      document.body.appendChild(popup);
+
+      setTimeout(function () {
+        popup.style.left = "20px";
+        popup.style.opacity = 1;
+      }, 50);
+
+      setTimeout(function () {
+        popup.style.left = "-200px";
+        popup.style.opacity = 0;
+      }, 3000);
+    };
+  </script>
+  <link rel="icon" href="/assets/GM2.png">
+</head>
+
+<body style="margin: 0;">
+  <script src="ruffle.js"></script>
+  <embed src="gun-mayhem-2-more-ma-13824.swf" style="background-color: transparent;" width="100%" height="100%"></embed>
+
+</body>
+
+</html>
