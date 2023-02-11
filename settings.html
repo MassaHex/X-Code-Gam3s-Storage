@@ -3,132 +3,87 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
   <script>function getMainSave() {
     var mainSave = {};
-
+  
     var localStorageDontSave = ["theme", "tab", "nebelung"];
-
+  
     localStorageSave = Object.entries(localStorage);
-
+  
     for (let entry in localStorageSave) {
-        if (localStorageDontSave.includes(localStorageSave[entry][0])) {
-            localStorageSave.splice(entry, 1);
-        }
+      if (localStorageDontSave.includes(localStorageSave[entry][0])) {
+        localStorageSave.splice(entry, 1);
+      }
     }
-
-    localStorageSave = new TextEncoder().encode(JSON.stringify(localStorageSave));
-    localStorageSave = Array.from(localStorageSave, function(ch) {
-        return ch.toString(16);
-    }).join('');
-
+  
+    localStorageSave = btoa(JSON.stringify(localStorageSave));
+  
     mainSave.localStorage = localStorageSave;
-
+  
     cookiesSave = document.cookie;
-
-    cookiesSave = new TextEncoder().encode(cookiesSave);
-    cookiesSave = Array.from(cookiesSave, function(ch) {
-        return ch.toString(16);
-    }).join('');
-
+  
+    cookiesSave = btoa(cookiesSave);
+  
     mainSave.cookies = cookiesSave;
-
-    mainSave = new TextEncoder().encode(JSON.stringify(mainSave));
-    mainSave = Array.from(mainSave, function(ch) {
-        return ch.toString(16);
-    }).join('');
-
+  
+    mainSave = btoa(JSON.stringify(mainSave));
+  
     mainSave = CryptoJS.AES.encrypt(mainSave, "save").toString();
-
+  
     return mainSave;
-}
-
-function getMainSaveFromUpload(data) {
-    data = CryptoJS.AES.decrypt(data, "save").toString(CryptoJS.enc.Utf8);
-
-    var mainSave = new TextDecoder().decode(
-        Uint8Array.from(data.match(/[\da-f]{2}/gi), function(h) {
-            return parseInt(h, 16);
-        })
-    );
-
-    var mainLocalStorageSave = new TextDecoder().decode(
-        Uint8Array.from(mainSave.localStorage.match(/[\da-f]{2}/gi), function(h) {
-            return parseInt(h, 16);
-        })
-    );
-
-    var cookiesSave = new TextDecoder().decode(
-        Uint8Array.from(mainSave.cookies.match(/[\da-f]{2}/gi), function(h) {
-            return parseInt(h, 16);
-        })
-    );
-
-    for (let item in mainLocalStorageSave) {
-        localStorage.setItem(mainLocalStorageSave[item][0], mainLocalStorageSave[item][1]);
-    }
-
-    document.cookie = cookiesSave;
-}
-
-function downloadMainSave() {
-    var mainSave = getMainSave();
-    var a = document.createElement("a");
-    a.style.display = "none";
-    a.href = "data:application/octet-stream," + encodeURIComponent(mainSave);
-    a.download = "projects.save";
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function() {
-        document.body.removeChild(a)
-    }, 100);
-}
-
-function uploadMainSave() {
-  var input = document.createElement('input');
-  input.type = 'file';
-  input.accept = '.save';
-  input.click();
-  input.onchange = function(event) {
-    var reader = new FileReader();
-    reader.onload = function() {
-      var data = reader.result;
-      getMainSaveFromUpload(data);
-    };
-    reader.readAsText(event.target.files[0]);
-  };
-}
-</script>
-<script>
-   function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
   }
-  return "";
-}
-
-var logged_in = getCookie("logged_in");
-if (logged_in == "true") {
-  // show protected content
-} else {
-  window.location.href = "/login.html";
-}
-</script>
-<script>
-  function logout() {
-  deleteCookie("logged_in");
-  window.location.href = "index.html";
-}
-
-function deleteCookie(cname) {
-  document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-}
+  
+  function downloadMainSave() {
+    var data = new Blob([getMainSave()]);
+    var dataURL = URL.createObjectURL(data);
+  
+    var fakeElement = document.createElement("a");
+    fakeElement.href = dataURL;
+    fakeElement.download = "projects.save";
+    fakeElement.click();
+    URL.revokeObjectURL(dataURL);
+  }
+  
+  function getMainSaveFromUpload(data) {
+    data = CryptoJS.AES.decrypt(data, "save").toString(CryptoJS.enc.Utf8);
+  
+    var mainSave = JSON.parse(atob(data));
+    var mainLocalStorageSave = JSON.parse(atob(mainSave.localStorage));
+    var cookiesSave = atob(mainSave.cookies);
+  
+    for (let item in mainLocalStorageSave) {
+      localStorage.setItem(mainLocalStorageSave[item][0], mainLocalStorageSave[item][1]);
+    }
+  
+    document.cookie = cookiesSave;
+  }
+  
+  function uploadMainSave() {
+    var hiddenUpload = document.querySelector(".hiddenUpload");
+    hiddenUpload.click();
+  
+    hiddenUpload.addEventListener("change", function (e) {
+      var files = e.target.files;
+      var file = files[0];
+  
+      if (!file) {
+        return;
+      }
+  
+      var reader = new FileReader();
+  
+      reader.onload = function (e) {
+        getMainSaveFromUpload(e.target.result);
+  
+        var uploadResult = document.querySelector(".uploadResult");
+        uploadResult.innerText = "Uploaded save!";
+        uploadResult.style.display = "initial";
+        setTimeout(function () {
+          uploadResult.style.display = "none";
+        }, 3000);
+      };
+  
+      reader.readAsText(file);
+    });
+  }
 </script>
   <title>Classlink</title>
   <!--<base href="/">-->
