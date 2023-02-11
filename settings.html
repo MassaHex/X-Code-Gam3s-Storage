@@ -82,18 +82,18 @@ function downloadMainSave() {
 }
 
 function uploadMainSave() {
-    var input = document.createElement("input");
-    input.type = "file";
-    input.accept = ".save";
-    input.click();
-    input.onchange = function() {
-        var file = input.files[0];
-        var reader = new FileReader();
-        reader.onload = function() {
-            getMainSaveFromUpload(reader.result);
-        };
-        reader.readAsText(file);
+  var input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.save';
+  input.click();
+  input.onchange = function(event) {
+    var reader = new FileReader();
+    reader.onload = function() {
+      var data = reader.result;
+      getMainSaveFromUpload(data);
     };
+    reader.readAsText(event.target.files[0]);
+  };
 }
 </script>
   <script>
