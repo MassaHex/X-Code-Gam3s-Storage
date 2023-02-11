@@ -2,93 +2,83 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
   <script>function getMainSave() {
-  var mainSave = {};
+    var mainSave = {};
 
-  var localStorageDontSave = ["theme", "tab", "nebelung"];
+    var localStorageDontSave = ["theme", "tab", "nebelung"];
 
-  localStorageSave = Object.entries(localStorage);
+    localStorageSave = Object.entries(localStorage);
 
-  for (let entry in localStorageSave) {
-    if (localStorageDontSave.includes(localStorageSave[entry][0])) {
-      localStorageSave.splice(entry, 1);
+    for (let entry in localStorageSave) {
+        if (localStorageDontSave.includes(localStorageSave[entry][0])) {
+            localStorageSave.splice(entry, 1);
+        }
     }
-  }
 
-  localStorageSave = new TextEncoder().encode(JSON.stringify(localStorageSave));
-  localStorageSave = Array.from(localStorageSave, function(ch) {
-    return ch.toString(16);
-  }).join('');
+    localStorageSave = new TextEncoder().encode(JSON.stringify(localStorageSave));
+    localStorageSave = Array.from(localStorageSave, function(ch) {
+        return ch.toString(16);
+    }).join('');
 
-  mainSave.localStorage = localStorageSave;
+    mainSave.localStorage = localStorageSave;
 
-  cookiesSave = document.cookie;
+    cookiesSave = document.cookie;
 
-  cookiesSave = new TextEncoder().encode(cookiesSave);
-  cookiesSave = Array.from(cookiesSave, function(ch) {
-    return ch.toString(16);
-  }).join('');
+    cookiesSave = new TextEncoder().encode(cookiesSave);
+    cookiesSave = Array.from(cookiesSave, function(ch) {
+        return ch.toString(16);
+    }).join('');
 
-  mainSave.cookies = cookiesSave;
+    mainSave.cookies = cookiesSave;
 
-  mainSave = new TextEncoder().encode(JSON.stringify(mainSave));
-  mainSave = Array.from(mainSave, function(ch) {
-    return ch.toString(16);
-  }).join('');
+    mainSave = new TextEncoder().encode(JSON.stringify(mainSave));
+    mainSave = Array.from(mainSave, function(ch) {
+        return ch.toString(16);
+    }).join('');
 
-  mainSave = CryptoJS.AES.encrypt(mainSave, "save").toString();
+    mainSave = CryptoJS.AES.encrypt(mainSave, "save").toString();
 
-  return mainSave;
+    return mainSave;
 }
 
 function getMainSaveFromUpload(data) {
-  data = CryptoJS.AES.decrypt(data, "save").toString(CryptoJS.enc.Utf8);
+    data = CryptoJS.AES.decrypt(data, "save").toString(CryptoJS.enc.Utf8);
 
-var mainSave = new TextDecoder().decode(
-    Uint8Array.from(data.match(/[\da-f]{2}/gi), function(h) {
-        return parseInt(h, 16);
-    });
-
-try {
-    mainSave = JSON.parse(mainSave);
-} catch (error) {
-    console.error("Error parsing JSON: " + error);
-}
-
-  Uint8Array.from(data.match(/[\da-f]{2}/gi), function(h) {
-    return parseInt(h, 16);
-  })
+    var mainSave = new TextDecoder().decode(
+        Uint8Array.from(data.match(/[\da-f]{2}/gi), function(h) {
+            return parseInt(h, 16);
+        })
     );
 
-  var mainLocalStorageSave = new TextDecoder().decode(
-    Uint8Array.from(mainSave.localStorage.match(/[\da-f]{2}/gi), function(h) {
-      return parseInt(h, 16);
-    })
-  );
+    var mainLocalStorageSave = new TextDecoder().decode(
+        Uint8Array.from(mainSave.localStorage.match(/[\da-f]{2}/gi), function(h) {
+            return parseInt(h, 16);
+        })
+    );
 
-  var cookiesSave = new TextDecoder().decode(
-    Uint8Array.from(mainSave.cookies.match(/[\da-f]{2}/gi), function(h) {
-      return parseInt(h, 16);
-    })
-  );
+    var cookiesSave = new TextDecoder().decode(
+        Uint8Array.from(mainSave.cookies.match(/[\da-f]{2}/gi), function(h) {
+            return parseInt(h, 16);
+        })
+    );
 
-  for (let item in mainLocalStorageSave) {
-    localStorage.setItem(mainLocalStorageSave[item][0], mainLocalStorageSave[item][1]);
-  }
+    for (let item in mainLocalStorageSave) {
+        localStorage.setItem(mainLocalStorageSave[item][0], mainLocalStorageSave[item][1]);
+    }
 
-  document.cookie = cookiesSave;
+    document.cookie = cookiesSave;
 }
 
 function downloadMainSave() {
-  var mainSave = getMainSave();
-  var a = document.createElement("a");
-  a.style.display = "none";
-  a.href = "data:application/octet-stream," + encodeURIComponent(mainSave);
-  a.download = "projects.save";
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(function() {
-    document.body.removeChild(a)
-  }, 100);
+    var mainSave = getMainSave();
+    var a = document.createElement("a");
+    a.style.display = "none";
+    a.href = "data:application/octet-stream," + encodeURIComponent(mainSave);
+    a.download = "projects.save";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function() {
+        document.body.removeChild(a)
+    }, 100);
 }
 
 function uploadMainSave() {
@@ -106,9 +96,6 @@ function uploadMainSave() {
   };
 }
 </script>
-  <script>
-        window.history.pushState("", "", "/");
-    </script>
 <script>
    function getCookie(cname) {
   var name = cname + "=";
