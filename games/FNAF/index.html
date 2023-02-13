@@ -51,9 +51,12 @@ window['___jsl']=window['___jsl']||{};
 
 
 </head><body dir="ltr"><script>
-		var gameConfig = {
-			swfUrl: "five-nights-at-freddys.swf"	// Replace with url to swf file when hosted.	
-		}
+var gameConfig = {
+	swfUrl: ""
+};
+
+// Set the swfUrl property based on the current domain name
+gameConfig.swfUrl = "https://" + location.hostname + "/games/FNAF/five-nights-at-freddys.swf";
 </script>
 <div id="waflashContainer">
 <canvas class="waflashCanvas" id="canvas" tabindex="1"></canvas>
