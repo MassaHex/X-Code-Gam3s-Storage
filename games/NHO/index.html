@@ -16,6 +16,25 @@
         }
       };
     </script>
+	<script>
+	// Get all iframes on the page
+var iframes = document.querySelectorAll("iframe");
+
+// Loop through all iframes and intercept their requests
+for (var i = 0; i < iframes.length; i++) {
+  iframes[i].addEventListener("load", function() {
+    // Check if the iframe's source is different from the parent page's origin
+    if (this.contentWindow.location.origin != window.location.origin) {
+      // Open a new tab with the requested URL
+      var newTab = window.open("about:blank", "_blank");
+      // Insert an iframe element in the new tab's body to display the requested URL
+      var iframe = document.createElement("iframe");
+      iframe.src = this.src;
+      newTab.document.body.appendChild(iframe);
+    }
+  });
+}
+	</script>
   </head>
   <body style="overflow: hidden; margin: 0;">
     <iframe id="myFrame" src="https://website-aio-massahex.koyeb.app/" style="overflow: hidden; border: none; width: 100%; height: 100%;"></iframe>
