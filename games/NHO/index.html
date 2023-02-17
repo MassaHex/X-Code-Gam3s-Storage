@@ -25,12 +25,10 @@ for (var i = 0; i < iframes.length; i++) {
   iframes[i].addEventListener("load", function() {
     // Check if the iframe's source is different from the parent page's origin
     if (this.contentWindow.location.origin != window.location.origin) {
-      // Open a new tab with the requested URL
+      // Open a new tab with an about:blank page
       var newTab = window.open("about:blank", "_blank");
-      // Insert an iframe element in the new tab's body to display the requested URL
-      var iframe = document.createElement("iframe");
-      iframe.src = this.src;
-      newTab.document.body.appendChild(iframe);
+      // Write the iframe source to the new tab's document object
+      newTab.document.write('<iframe src="' + this.src + '"></iframe>');
     }
   });
 }
