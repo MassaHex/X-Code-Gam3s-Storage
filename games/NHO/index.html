@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html style="margin: 0; overflow: hidden; background-color: #2e3440;">
+  <head>
+      <link href="favicon.ico" rel="icon">
+    <title>Classlink</title>
+  </head>
+  <body style="overflow: hidden; margin: 0;">
+    <iframe id="myFrame" src="https://website-aio-massahex.koyeb.app/" style="overflow: hidden; border: none; width: 100%; height: 100%;"></iframe>
+    <script>
+      function resizeFrame() {
+        var frame = document.getElementById("myFrame");
+        frame.style.height = window.innerHeight + "px";
+        frame.style.width = window.innerWidth + "px";
+      }
+      window.onresize = resizeFrame;
+      resizeFrame();
+    </script>
+    <script>
+      function handleError() {
+        var frame = document.getElementById("myFrame");
+        frame.src = "error.html";
+      }
+    </script>
+  </body>
+</html>
