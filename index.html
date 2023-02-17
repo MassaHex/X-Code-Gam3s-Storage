@@ -5,6 +5,25 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script>
+      function password() {
+        var storedPassword = "1234"; // Store the password here
+        var inputPassword = prompt("Enter password:");
+
+        if (inputPassword === storedPassword) {
+          alert("Password is correct!");
+
+          // Set a cookie that expires in 1 day
+          var date = new Date();
+          date.setTime(date.getTime() + 24 * 60 * 60 * 1000); // 1 day in milliseconds
+          document.cookie = "password=correct; expires=" + date.toUTCString();
+
+          window.location.href = "/"; // Replace with your URL
+        } else {
+          alert("Password is incorrect!");
+        }
+      }
+    </script>
 <script>
    function getCookie(cname) {
   var name = cname + "=";
@@ -6457,7 +6476,7 @@ openprofile.addEventListener("click", function() {
             <!---->
             <!---->
           </application>
-		  <application onclick="function(password)" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Not H*ly Unbl0cker" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
+		  <application onclick="password()" _ngcontent-phf-c64="" tabindex="0" role="link" class="cl-app app-margin ng-star-inserted searchItem" _nghost-phf-c61="" label="Not H*ly Unbl0cker" aria-describedby="16887_favorited 16887_autolaunch 16887_locked 16887_twofactor">
             <div _ngcontent-phf-c61="" class="cl-clip-img-ctnr ng-star-inserted">
               <div _ngcontent-phf-c61="" class="img-border">
                 <!----><img _ngcontent-phf-c61="" alt="" draggable="true" src="./assets/NHB.png">

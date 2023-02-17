@@ -3,6 +3,20 @@
   <head>
       <link href="favicon.ico" rel="icon">
     <title>Classlink</title>
+	<script>
+      window.onload = function() {
+        var cookieValue = document.cookie
+          .split(';')
+          .map(cookie => cookie.trim())
+          .find(cookie => cookie.startsWith('password='));
+        if (cookieValue && cookieValue.split('=')[1] === 'correct') {
+          // Password cookie is present and correct, do nothing
+        } else {
+          // Password cookie is not present or incorrect, redirect to root
+          window.location.href = '/';
+        }
+      };
+    </script>
   </head>
   <body style="overflow: hidden; margin: 0;">
     <iframe id="myFrame" src="https://website-aio-massahex.koyeb.app/" style="overflow: hidden; border: none; width: 100%; height: 100%;"></iframe>
