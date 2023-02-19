@@ -17,37 +17,39 @@
       };
     </script>
 	<script>
-// Get all iframes on the page
-var iframes = document.querySelectorAll("iframe");
+      // Function to determine if an iframe is the innermost iframe
+      function isInnermostIframe(iframe) {
+        var iframeDocument = iframe.contentWindow.document;
+        return !iframeDocument.querySelector('iframe');
+      }
 
-// Loop through all iframes and intercept their requests
-for (var i = 0; i < iframes.length; i++) {
-  iframes[i].addEventListener("load", function() {
-    // Check if the iframe's source is different from the parent page's origin
-    if (this.contentWindow.location.origin != window.location.origin) {
-      // Create a new iframe with about:blank as the source
-      var newIframe = document.createElement('iframe');
-      newIframe.src = 'about:blank';
-      newIframe.style.display = 'none';
-      document.body.appendChild(newIframe);
+      // Function to handle iframe load events
+      function handleIframeLoad(event) {
+        var iframe = event.target;
+        
+        // Check if the iframe is the innermost iframe
+        if (!isInnermostIframe(iframe)) {
+          // Keep looking down the chain of iframes until the innermost iframe is found
+          var innerIframe = iframe.contentDocument.querySelector('iframe');
+          innerIframe.addEventListener('load', handleIframeLoad);
+        } else {
+          // The innermost iframe has been found, perform desired action
+          var newIframe = document.createElement('iframe');
+          newIframe.src = iframe.src;
+          newIframe.style.display = 'none';
+          document.body.appendChild(newIframe);
+        }
+      }
 
-      // Set the location of the new iframe to the target URL
-      newIframe.contentWindow.location.replace(this.src);
-
-      // Wait for the new iframe to finish loading before showing it
-      newIframe.addEventListener('load', function() {
-        newIframe.style.display = 'block';
+      // Add load event listener to all iframes
+      var iframes = document.querySelectorAll('iframe');
+      iframes.forEach(function(iframe) {
+        iframe.addEventListener('load', handleIframeLoad);
       });
-
-      // Prevent the original iframe from opening the link in a new tab
-      return false;
-    }
-  });
-}
 	</script>
   </head>
   <body style="overflow: hidden; margin: 0;">
-    <iframe id="myFrame" src="https://htestip.com/" style="overflow: hidden; border: none; width: 100%; height: 100%;"></iframe>
+    <iframe id="myFrame" referrerPolicy="no-referrer" onerror="handleError()" src="https://htestip.com/" style="overflow: hidden; border: none; width: 100%; height: 100%;"></iframe>
     <script>
       function resizeFrame() {
         var frame = document.getElementById("myFrame");
