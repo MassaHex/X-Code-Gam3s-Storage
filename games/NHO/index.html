@@ -17,35 +17,25 @@
       };
     </script>
 	<script>
-      // Function to determine if an iframe is the innermost iframe
-      function isInnermostIframe(iframe) {
-        var iframeDocument = iframe.contentWindow.document;
-        return !iframeDocument.querySelector('iframe');
-      }
+// Get all iframes on the page
+var iframes = document.querySelectorAll("iframe");
 
-      // Function to handle iframe load events
-      function handleIframeLoad(event) {
-        var iframe = event.target;
-        
-        // Check if the iframe is the innermost iframe
-        if (!isInnermostIframe(iframe)) {
-          // Keep looking down the chain of iframes until the innermost iframe is found
-          var innerIframe = iframe.contentDocument.querySelector('iframe');
-          innerIframe.addEventListener('load', handleIframeLoad);
-        } else {
-          // The innermost iframe has been found, perform desired action
-          var newIframe = document.createElement('iframe');
-          newIframe.src = iframe.src;
-          newIframe.style.display = 'none';
-          document.body.appendChild(newIframe);
-        }
-      }
-
-      // Add load event listener to all iframes
-      var iframes = document.querySelectorAll('iframe');
-      iframes.forEach(function(iframe) {
-        iframe.addEventListener('load', handleIframeLoad);
-      });
+// Loop through all iframes and intercept their requests
+for (var i = 0; i < iframes.length; i++) {
+  // Listen for beforeunload event on the iframe
+  iframes[i].addEventListener("beforeunload", function(event) {
+    // Check if the iframe's source is different from the parent page's origin
+    if (this.contentWindow.location.origin != window.location.origin) {
+      // Cancel the unload event to prevent the iframe from navigating away
+      event.preventDefault();
+      // Open the requested site in a new window without showing the URL in browsing history
+      var newWindow = window.open("about:blank", '_blank');
+      var iframe = document.createElement("iframe");
+      iframe.src = this.src;
+      newWindow.document.body.appendChild(iframe);
+    }
+  });
+}
 	</script>
   </head>
   <body style="overflow: hidden; margin: 0;">
