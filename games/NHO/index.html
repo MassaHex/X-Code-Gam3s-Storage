@@ -17,30 +17,9 @@
       };
     </script>
 	<script>
-	// get all clickable elements on the page
-const clickableElements = document.querySelectorAll('a[target="_blank"], button[target="_blank"]');
-
-// loop through each clickable element and add an onclick event handler
-for (let i = 0; i < clickableElements.length; i++) {
-  clickableElements[i].onclick = function(event) {
-    // prevent the default link behavior
-    event.preventDefault();
-    
-    // get the link URL
-    const url = this.href || this.getAttribute('data-href');
-    
-    // check if the link is inside an iframe
-    const inIframe = window.self !== window.top;
-    
-    if (inIframe) {
-      // if the link is in an iframe, replace the iframe source with the link URL
-      window.top.document.getElementById('myFrame').src = url;
-    } else {
-      // if the link is not in an iframe, open the link in the current tab
-      window.location.href = url;
-    }
-  }
-}
+window.onload = function() {
+  alert('To open a URL in a new tab, please use the middle mouse button. Left-clicking on a link may result in an error.');
+};
 	</script>
   </head>
   <body style="overflow: hidden; margin: 0;">
