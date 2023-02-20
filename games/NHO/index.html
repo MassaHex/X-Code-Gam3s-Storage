@@ -34,7 +34,7 @@ for (let i = 0; i < clickableElements.length; i++) {
     
     if (inIframe) {
       // if the link is in an iframe, replace the iframe source with the link URL
-      window.top.document.getElementById('myiframe').src = url;
+      window.top.document.getElementById('myFrame').src = url;
     } else {
       // if the link is not in an iframe, open the link in the current tab
       window.location.href = url;
