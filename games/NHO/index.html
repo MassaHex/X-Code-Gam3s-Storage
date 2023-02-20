@@ -37,7 +37,19 @@ window.onload = function() {
       function handleError() {
         var frame = document.getElementById("myFrame");
         frame.src = "error.html";
+        frame.removeEventListener("load", handleLoad);
       }
+
+      function handleLoad() {
+        var frame = document.getElementById("myFrame");
+        if (frame.src === "error.html") {
+          frame.removeEventListener("load", handleLoad);
+          frame.src = "error.html";
+        }
+      }
+
+      var frame = document.getElementById("myFrame");
+      frame.addEventListener("load", handleLoad);
     </script>
   </body>
 </html>
