@@ -35,10 +35,11 @@ window.onload = function() {
     </script>
     <script>
 function handleError() {
-  console.log("Encountered an error loading " + myFrame.src);
-  myFrame.src = "error.html";
-        frame.removeEventListener("load", handleLoad);
-      }
+  console.log("Error loading iframe");
+  var frame = document.getElementById("myFrame");
+  frame.src = "error.html";
+  frame.removeEventListener("load", handleLoad);
+}
 
 function handleLoad() {
   console.log("Loaded: " + myFrame.src);
