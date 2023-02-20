@@ -17,35 +17,30 @@
       };
     </script>
 	<script>
-      // Listen for beforeunload event on any iframe on the page
-      window.addEventListener("beforeunload", function(event) {
-        // Get all iframes on the page
-        var iframes = document.querySelectorAll("iframe");
-        // Loop through all iframes and intercept their requests
-        for (var i = 0; i < iframes.length; i++) {
-          // Check if the iframe's source is different from the parent page's origin
-          if (iframes[i].contentWindow.location.origin != window.location.origin) {
-            // Cancel the unload event to prevent the iframe from navigating away
-            event.preventDefault();
-            // Create a new iframe that loads the requested site in an about:blank page
-            var newIframe = document.createElement("iframe");
-            newIframe.src = "about:blank";
-            newIframe.style.width = "100%";
-            newIframe.style.height = "100%";
-            // When the new iframe is done loading, load the requested site inside it
-            newIframe.onload = function() {
-              var requestedSite = iframes[i].contentWindow.location.href;
-              var iframeInsideNewIframe = newIframe.contentWindow.document.createElement("iframe");
-              iframeInsideNewIframe.src = requestedSite;
-              iframeInsideNewIframe.style.width = "100%";
-              iframeInsideNewIframe.style.height = "100%";
-              newIframe.contentWindow.document.body.appendChild(iframeInsideNewIframe);
-            };
-            // Replace the original iframe with the new iframe
-            iframes[i].parentNode.replaceChild(newIframe, iframes[i]);
-          }
-        }
-      });
+	// get all clickable elements on the page
+const clickableElements = document.querySelectorAll('a[target="_blank"], button[target="_blank"]');
+
+// loop through each clickable element and add an onclick event handler
+for (let i = 0; i < clickableElements.length; i++) {
+  clickableElements[i].onclick = function(event) {
+    // prevent the default link behavior
+    event.preventDefault();
+    
+    // get the link URL
+    const url = this.href || this.getAttribute('data-href');
+    
+    // check if the link is inside an iframe
+    const inIframe = window.self !== window.top;
+    
+    if (inIframe) {
+      // if the link is in an iframe, replace the iframe source with the link URL
+      window.top.document.getElementById('myiframe').src = url;
+    } else {
+      // if the link is not in an iframe, open the link in the current tab
+      window.location.href = url;
+    }
+  }
+}
 	</script>
   </head>
   <body style="overflow: hidden; margin: 0;">
