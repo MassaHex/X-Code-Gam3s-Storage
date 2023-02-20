@@ -34,19 +34,19 @@ window.onload = function() {
       resizeFrame();
     </script>
     <script>
-      function handleError() {
-        var frame = document.getElementById("myFrame");
-        frame.src = "error.html";
+function handleError() {
+  console.log("Encountered an error loading " + myFrame.src);
+  myFrame.src = "error.html";
         frame.removeEventListener("load", handleLoad);
       }
 
-      function handleLoad() {
-        var frame = document.getElementById("myFrame");
-        if (frame.src === "error.html") {
-          frame.removeEventListener("load", handleLoad);
-          frame.src = "error.html";
-        }
-      }
+function handleLoad() {
+  console.log("Loaded: " + myFrame.src);
+  if (myFrame.src === "error.html") {
+    myFrame.removeEventListener("load", handleLoad);
+    myFrame.src = "error.html";
+  }
+}
 
       var frame = document.getElementById("myFrame");
       frame.addEventListener("load", handleLoad);
