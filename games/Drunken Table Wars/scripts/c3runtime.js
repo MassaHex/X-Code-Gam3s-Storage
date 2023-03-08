@@ -3003,7 +3003,7 @@ WindowInnerHeight(){return this._runtime.GetCanvasManager().GetLastHeight()},Win
         if (d.getElementById(id)) return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "//html5.api.gamedistribution.com/main.min.js";
+        js.src = "main.min.js";
         fjs.parentNode.insertBefore(js, fjs);
       })(document, "script", "gamedistribution-jssdk");
     }
