@@ -1,0 +1,63 @@
+{
+  
+  "language_code":"es",
+  
+  "title":"LUCHA DE SALTOS 2",
+  
+  "robin":"Robin",
+  "starfire":"Starfire",
+  "raven":"Raven",
+  "cyborg":"Cyborg",
+  "beastboy":"Chico Bestia",
+  "gizmo":"Gizmo",
+  "jinx":"Jinx",
+  "mammoth":"Mamut",
+  "painbot":"Dolor-Bot",
+  "terra":"Terra",
+  "bumblebee":"Bumblebee",
+  "aqualad":"Aqualad",
+  "kidflash":"Chico Flash",
+  "batman":"Batman",
+  "superman":"Superman",
+  "harleyquinn":"Harley Quinn",
+  "slade":"Slade",
+  "mothermaeeye":"Mamá Puedo",
+  "trigon":"Trigon",
+  "brotherblood":"Hermano Sangre",
+  
+  "credits_produced":"Producido Por",
+  "credits_developed":"Desarrollado Por",
+  
+  "select_color":"COLOR",
+  "select_endless":"INFINITO",
+  "select_ready":"LISTO",
+  "select_color_mobile": "TOCA PARA CAMBIAR EL COLOR",
+  
+  "controls_attack":"ATACAR",
+  "controls_move":"MOVER",
+  "controls_ok":"OK",
+  "controls_back":"VOLVER",
+  "controls_jump":"SALTAR",
+  "controls_special":"ESPECIAL",
+  "controls_tap":"TOCA",
+  "controls_tap_here":"TOCA AQUÍ",
+  
+  "battle_ready":"LISTOS",
+  "battle_wins":"GANA",
+  "battle_pause":"PAUSA",
+  "battle_tiebreaker":"¡AHORA O NUNCA!",
+  "battle_quit_confirm":"SALIR DE LA BATALLA",
+  
+  "unlock_character":"NUEVO PERSONAJE DESBLOQUEADO",
+  "unlock_color":"NUEVO COLOR DESBLOQUEADO",
+  "unlock_gamemode":"NUEVO MODO DESBLOQUEADO",
+  
+  "endless_battle":"BATALLA",
+  "endless_best_character":"MEJOR PUNTAJE DEL PERSONAJE",
+  "endless_best_overall":"MEJOR PUNTAJE TOTAL",
+  
+  "mode_endless":"MODO INFIITO",
+  "mode_rivals":"MODO RIVALES"
+  
+  
+}
