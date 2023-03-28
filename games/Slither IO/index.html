@@ -311,10 +311,6 @@
 if (!window.console) window.console = {};
 if (!window.console.log) window.console.log = function (a) { };
 
-if (((window.location.href+'').toLowerCase()).indexOf('https:') == 0) {
- window.location = 'http:'+window.location.href.substr(6);
-}
-
 var country = 'US'; // no!
 
 /*
