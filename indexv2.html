@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xtra</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
+  <link rel="shortcut icon" href="./images/main-icon.svg">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4TGZ7DBN83"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4TGZ7DBN83');
+  </script>
+</head>
+
+<body>
+  <div id="window">
+    <div id="popup">
+      <!--<div class="content">
+                <img src="./images/app-store.png" alt="Google Play Logo">
+                <h1>Google Play Store</h1>
+                <p>Do you want to get 70+ more games to play here on Xtra. If yes check out the app store!</p>
+                <a href="store.html" target="_blank"><button class="go">Go to App Store</button></a>
+                <button class="close">No Thanks</button>
+            </div>!-->
+      <div class="content">
+        <img src="./images/ytpng.png" alt="youtube">
+        <h1>Subscribe</h1>
+        <p>To keep downloading more apps and using Xtra make sure to subscribe to MassaHex!</p>
+        <a href="https://www.youtube.com/@MassaHex?sub_confirmation=1" target="_blank"><button
+            class="go">Subscribe</button></a>
+      </div>
+    </div>
+    <div id="clickbox"></div>
+    <div id="play">
+<i class="fa-solid fa-circle-xmark" id="XBtn" onclick="play()"></i>
+      <iframe src="" frameborder="0"></iframe>
+    </div>
+    <div class="apps" id="apps"></div>
+    <div class="apps other" id="pageTwo"></div>
+    <div class="apps other" id="pageThree"></div>
+    <div class="dots">
+      <div class="dot one active"></div>
+      <div class="dot two"></div>
+    </div>
+    <div id="bar" class="bar">
+      <img src="./assets/drive-mad.jpg" onclick="play('./games/drive-mad')">
+      <a href="store.html"><img src="./assets/app-store.png"></a>
+      <img src="./assets/krk.png" onclick="play('./games/krunker')">
+      <img src="./assets/camera-recorder.png" onclick="play('./camera.html')">
+    </div>
+    <div class="slider one" id="sliderOne">
+      <i class="fa-solid fa-arrow-left"></i>
+    </div>
+    <div class="slider two" id="sliderTwo">
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+    <div class="bottom">
+      <a href="//youtube.com/c/blazerhm" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://discord.gg/X2C6xqStDs" target="_blank"><i class="fa-brands fa-discord"></i></a>
+      <a href="store.html"><i class="fa-solid fa-store"></i></a>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script src="js/script.js"></script>
+  <script src="js/context-menu.js"></script>
+  <script src="js/XBtn.js"></script>

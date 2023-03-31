@@ -1,0 +1,4 @@
+[
+    ["Google Play", "Find the games of your choice with the best selections you will never be bored.", "assets/app-store.png", "./store.html"],
+   ["Camera App", "Default App used for recording and picture taking.", "assets/camera-recorder.png", "./camera.html"]
+]
