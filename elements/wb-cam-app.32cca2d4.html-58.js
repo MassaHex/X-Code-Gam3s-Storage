@@ -1,0 +1,2 @@
+define("components/w69b-es6/timeutil.js",["exports"],function(t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var e={};e.formatDuration=function(t){function e(t){return t<10?"0"+t:t}"number"!=typeof t&&(t=0);var o=Math.floor(t%60),n=Math.floor(t/60%60),r=[e(n),e(o)],u=Math.floor(t/3600);return u&&r.unshift(u),r.join(":")},t.default=e});
+//# sourceURL=https://www.cam-recorder.com/elements/wb-cam-app.32cca2d4.html-58.js

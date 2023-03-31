@@ -1,0 +1,2 @@
+define("components/w69b-es6/clipboard.js",["exports"],function(e){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var t={};t.copy=function(e){var t=document.createElement("textarea");t.style.display="hidden",t.innerText=e,document.body.appendChild(t),t.select(),document.execCommand("copy"),document.body.removeChild(t)},e.default=t});
+//# sourceURL=https://www.cam-recorder.com/elements/wb-cam-app.32cca2d4.html-61.js

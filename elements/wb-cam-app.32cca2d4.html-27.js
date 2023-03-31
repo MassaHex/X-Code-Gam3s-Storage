@@ -1,0 +1,2 @@
+!function(){Polymer({is:"paper-dialog",behaviors:[Polymer.PaperDialogBehavior,Polymer.NeonAnimationRunnerBehavior],listeners:{"neon-animation-finish":"_onNeonAnimationFinish"},_renderOpened:function(){this.cancelAnimation(),this.playAnimation("entry")},_renderClosed:function(){this.cancelAnimation(),this.playAnimation("exit")},_onNeonAnimationFinish:function(){this.opened?this._finishRenderOpened():this._finishRenderClosed()}})}();
+//# sourceURL=https://www.cam-recorder.com/elements/wb-cam-app.32cca2d4.html-27.js

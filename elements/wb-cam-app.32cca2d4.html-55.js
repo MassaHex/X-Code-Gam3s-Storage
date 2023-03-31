@@ -1,0 +1,2 @@
+define("components/w69b-es6/log.js",["exports"],function(e){"use strict";Object.defineProperty(e,"__esModule",{value:!0});for(var o={isDebug:!0},n=["log","info","warn","debug","error"],r=function(){var e=n[t];o[e]=function(){for(var n=arguments.length,r=Array(n),t=0;t<n;t++)r[t]=arguments[t];o.isDebug&&console[e].apply(console,r)}},t=0;t<n.length;t++)r();e.default=o});
+//# sourceURL=https://www.cam-recorder.com/elements/wb-cam-app.32cca2d4.html-55.js

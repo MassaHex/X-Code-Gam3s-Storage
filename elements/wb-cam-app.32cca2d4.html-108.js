@@ -1,0 +1,2 @@
+!function(){var e=function(e,i,a){var r=navigator.getUserMedia||navigator.webkitGetUserMedia||navigator.mozGetUserMedia||navigator.msGetUserMedia;return r?new Promise(function(i,a){r.call(navigator,e,i,a)}):Promise.reject(new Error("getUserMedia is not implemented in this browser"))};void 0===navigator.mediaDevices&&(navigator.mediaDevices={}),void 0===navigator.mediaDevices.getUserMedia&&(navigator.mediaDevices.getUserMedia=e)}();
+//# sourceURL=https://www.cam-recorder.com/elements/wb-cam-app.32cca2d4.html-108.js
