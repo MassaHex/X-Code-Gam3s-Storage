@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Xtra</title>
+	<style>
+		.popup {
+			display: block;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			width:20% ;
+			transform: translate(-50%, -50%);
+			background-color: #fff;
+			padding: 20px;
+			border: 1px solid #ccc;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+			z-index: 999;
+			border-radius: 3px;
+			font-family: sans-serif;
+		}
+		
+		.popup h2 {
+			margin-top: 0;
+		}
+		
+		.popup button {
+			color: #5F8993;
+			padding: 10px 20px;
+			border: none;
+			background: none;
+			border-radius: 5px;
+			cursor: pointer;
+			float: right;
+		}
+		
+		.popup button:active {
+		    background-color: #CCCCCC;
+			color: #5F8993;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			float: right;
+		}
+		
+		#custom-context-menu {
+			display: none;
+		}
+	</style>
+</head>
+<body style="padding: 0; margin: 0;">
+<div id="window" style="background-image: url(); width: 100vw; height: 100vh; margin: 0; padding: 0; z-index: 8;">
+	<div class="popup">
+		<h2>Error</h2>
+		<p>An error has occurred. An unknown file was requested that does not exist on your system.</p>
+		<button onclick="closePopup()"><strong>OK</strong></button>
+	</div>
+	<script>
+		function closePopup() {
+			document.querySelector('.popup').style.display = 'none';
+			setTimeout(function() {
+				window.location.href = "/";
+			}, 1000); // wait for 1 second before redirecting to "/"
+		}
+	</script>
+</div>
+</body>
+</html>
+
+<script src="js/context-menu.js"></script>
