@@ -4,6 +4,7 @@
 	<title>Xtra</title>
 	<style>
 		.popup {
+		    transition: display 0.5s;
 			display: block;
 			position: fixed;
 			top: 50%;
@@ -23,53 +24,35 @@
 			margin-top: 0;
 		}
 		
-.popup button {
-  color: #5F8993;
-  padding: 10px 20px;
-  border: none;
-  background: none;
-  border-radius: 50px;
-  float: right;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  overflow: hidden;
-  position: relative;
-}
-
-.popup button:hover {
-  background-color: #eeeeee;
-}
-
-.popup button:active {
-  background-color: #cccccc;
-  color: #5F8993;
-  border: none;
-  border-radius: 50px;
-  float: right;
-  box-shadow: none;
-  transform: scale(0.95);
-}
-
-.popup button:active::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  width: 0;
-  height: 0;
-  opacity: 1;
-  transition: width 0.3s ease-out, height 0.3s ease-out, transform 0.3s ease-out, opacity 0.3s ease-out;
-}
-
-.popup button:active::after {
-  width: 100px;
-  height: 100px;
-  transform: translate(-50%, -50%) scale(2);
-  opacity: 0;
-}
+		.popup button {
+			color: #5F8993;
+			padding: 10px 20px;
+			border: none;
+			background: none;
+			border-radius: 5px;
+			float: right;
+			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+		}
+		
+	    .popup button:hover {
+		    background-color: #eeeeee;
+			color: #5F8993;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			float: right;
+		}
+		
+		.popup button:active {
+		    background-color: #ccccc;
+			color: #5F8993;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			float: right;
+			box-shadow: none;
+		}
 		
 		#custom-context-menu {
 			display: none;
