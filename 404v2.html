@@ -4,7 +4,7 @@
 	<title>Xtra</title>
 	<style>
 		.popup {
-		    transition: display 0.5s;
+		    transition: top 0.5s;
 			display: block;
 			position: fixed;
 			top: 50%;
@@ -68,7 +68,8 @@
 	</div>
 	<script>
 		function closePopup() {
-			document.querySelector('.popup').style.display = 'none';
+			document.querySelector('.popup').style.top = '150%';
+			document.querySelector('.popup').style.opacity = '0%';
 			setTimeout(function() {
 				window.location.href = "/";
 			}, 1000); // wait for 1 second before redirecting to "/"
