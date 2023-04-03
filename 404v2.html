@@ -76,6 +76,17 @@
 			}, 1000); // wait for 1 second before redirecting to "/"
 		}
 	</script>
+	<script>
+	const buttons = document.querySelectorAll("button");
+const items = document.querySelectorAll(".item");
+
+buttons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    const audio = new Audio("/android/sounds/Tap.mp3");
+    audio.play();
+  });
+});
+	</script>
 </div>
 </body>
 </html>
