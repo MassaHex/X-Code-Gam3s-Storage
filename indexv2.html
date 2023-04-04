@@ -83,6 +83,14 @@ buttons.forEach(function(button) {
     audio.play();
   });
 });</script>
+ <script>const item = document.querySelector('.item');
+
+item.forEach(function(button) {
+  item.addEventListener("click", function() {
+    const audio = new Audio("/android/sounds/Tap.mp3");
+    audio.play();
+  });
+});</script>
 <script>
 window.addEventListener('load', function() {
   // Select the elements with the specified IDs and class
