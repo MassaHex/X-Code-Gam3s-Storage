@@ -214,6 +214,7 @@ body {
 .slider.two {
     top: 0;
     right: 0;
+	transition: opacity .5s;
 }
 
 .slider i {
@@ -233,6 +234,7 @@ body {
     height: 8vh;
     z-index: 9;
 	opacity: 0;
+	transition: opacity .5s;
 }
 
 .bottom i {
