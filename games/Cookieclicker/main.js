@@ -1,4 +1,4 @@
-﻿/*
+/*
 All this code is copyright Orteil, 2013-2020.
 	-with some help, advice and fixes by Nicholas Laux, Debugbro, Opti, and lots of people on reddit, Discord, and the DashNet forums
 	-also includes a bunch of snippets found on stackoverflow.com and others
@@ -1175,7 +1175,7 @@ Game.Launch=function()
 		l('javascriptError').innerHTML=
 		'<div class="title">Oops. Wrong address!</div>'+
 		'<div>It looks like you\'re accessing Cookie Clicker from another URL than the official one.<br>'+
-		'You can <a href="//cookieclicker.jasperscode.repl.co" target="_blank">play Cookie Clicker over here</a>!<br>'+
+		'You can <a href="/games/Cookieclicker" target="_blank">play Cookie Clicker over here</a>!<br>'+
 		'<small>(If for any reason, you are unable to access the game on the official URL, we are currently working on a second domain.)</small></div>';
 	}
 	Game.timedout=false;
