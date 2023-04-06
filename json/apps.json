@@ -10,7 +10,7 @@
     ["Getaway Shootout", "Getaway Shooter is a chaotic two player game where you race three others to the extraction point.", "assets/getaway-shootout.jpg", "./games/GetawayShootout/"],
     ["Google", "Google This", "assets/google.jpg", "./games/Google/", "app"],
     ["Jetpack Joyride", "Strap on a bullet powered jetpack to dodge lasers, electric fields and all the missiles that come your way.", "assets/jetpack-joyride.jpg", "./games/Jetpack Joyride/"],
-    ["Minecraft 1.5.2", "", "assets/minecraft creeper face.png", "./games/Minecraft 1.5.2/"],
+    ["Minecraft 1.5.2", "", "assets/minecraft-creeper-face.png", "./games/Minecraft 1.5.2/"],
     ["Monkey Mart", "", "assets/monkey-mart.png", "./games/Monkey Mart/"],
     ["Moto X3M", "Use the arrow keys to accelerate, brake, or flip your bike. Make it through the course as quickly as possible.", "assets/moto-x3m.jpg", "./games/Moto-X3M/"],
     ["Paper.io 2", "", "assets/paperio2.png", "./games/Paper-io 2/"],
