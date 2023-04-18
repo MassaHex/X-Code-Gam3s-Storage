@@ -1,4 +1,4 @@
-javascript: (function() {
+(function() {
   var popup = document.createElement('div');
   popup.style = 'display: flex; flex-direction: column; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: white; border: 2px solid black; z-index: 9999; font: 13px/1.4 sans-serif;';
 
