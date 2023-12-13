@@ -214,7 +214,7 @@ require(['login'], function(App) {
     function login() {
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
-      if (username == "admin" && password == "1234") {
+      if (username == "unknown" && password == "4256") {
         setCookie("logged_in", "true", 1);
         window.location.href = "/";
       } else {
