@@ -1,0 +1,64 @@
+{
+  
+  "language_code":"en",
+  
+  "title":"JUMP JOUSTS 2",
+  
+  "robin":"Robin",
+  "starfire":"Starfire",
+  "raven":"Raven",
+  "cyborg":"Cyborg",
+  "beastboy":"Beast Boy",
+  "gizmo":"Gizmo",
+  "jinx":"Jinx",
+  "mammoth":"Mammoth",
+  "painbot":"Pain-Bot",
+  "terra":"Terra",
+  "bumblebee":"Bumblebee",
+  "aqualad":"Aqualad",
+  "kidflash":"Kid Flash",
+  "batman":"Batman",
+  "superman":"Superman",
+  "harleyquinn":"Harley Quinn",
+  "slade":"Slade",
+  "mothermaeeye":"Mother Mae-Eye",
+  "trigon":"Trigon",
+  "brotherblood":"Brother Blood",
+  
+  "credits_produced":"Produced By",
+  "credits_developed":"Developed By",
+  
+  "select_color":"COLOUR",
+  "select_endless":"ENDLESS",
+  "select_ready":"READY!",
+  "select_color_mobile": "TAP TO CHANGE COLOUR",
+  
+  "controls_attack":"ATTACK",
+  "controls_move":"MOVE",
+  "controls_ok":"OK",
+  "controls_back":"BACK",
+  "controls_jump":"JUMP",
+  "controls_special":"SPECIAL",
+  "controls_tap":"TAP",
+  "controls_tap_here":"TAP HERE",
+  
+  "battle_ready":"READY",
+  "battle_wins":"WINS!",
+  "battle_pause":"PAUSE",
+  "battle_tiebreaker":"MAKE YOUR MOVE!",
+  "battle_quit_confirm":"QUIT THE BATTLE?",
+  
+  "unlock_character":"NEW CHARACTER UNLOCKED",
+  "unlock_color":"NEW COLOUR UNLOCKED",
+  "unlock_gamemode":"NEW GAME MODE UNLOCKED",
+ 
+  "endless_battle":"BATTLE",
+  "endless_best_character":"CHARACTER BEST",
+  "endless_best_overall":"OVERALL BEST",
+  
+  "mode_endless":"ENDLESS MODE",
+  "mode_rivals":"RIVALS MODE"
+  
+  
+  
+}

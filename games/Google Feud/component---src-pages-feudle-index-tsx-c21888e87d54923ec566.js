@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgoogle_feud=self.webpackChunkgoogle_feud||[]).push([[331],{86:function(e,l,t){t.r(l);var n=t(7294),u=t(5414),r=t(570),a=t(3159);l.default=function(){return n.createElement(n.Fragment,null,n.createElement(u.q,null,n.createElement("title",null,"Google Feudle")),n.createElement(a.Z,{isFeudle:!0}),n.createElement(r.Z,null))}}}]);
-//# sourceMappingURL=component---src-pages-feudle-index-tsx-c21888e87d54923ec566.js.map

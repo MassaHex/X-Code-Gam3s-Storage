@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8164232226849069"
+     crossorigin="anonymous"></script>
+    <script>
+  window.onload = function() {
+    var button = document.createElement("div");
+    button.id = "x-button";
+    button.innerHTML = "x";
+    button.title = "Close App";
+    button.style.cssText = `
+    position: fixed;
+    top: 20px;
+    left: -40px;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.5s ease-in-out;
+    border-radius: 5px;`;
+
+    document.body.appendChild(button);
+
+    setTimeout(() => {
+        button.style.left = "20px";
+        button.style.opacity = "0.8";
+    }, 300);
+
+    button.addEventListener("click", function() {
+      window.location.href = "/";
+    });
+  }
+</script>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>McGraw-Hill</title>
+    <link rel="shortcut icon" href="TemplateData/McGraw-Hill.png">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Drag.json", {onProgress: UnityProgress});
+    </script>
+</head>
+<body>
+<div class="webgl-content">
+    <div id="gameContainer" style="width: 1650px; height: 900px;"></div>
+</div>
+<script src="TemplateData/responsive.js"></script>
+</body>
+</html>

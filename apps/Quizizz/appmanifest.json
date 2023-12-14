@@ -1,0 +1,10 @@
+{
+	"name": "GUN NIGHT",
+	"short_name": "GUN NIGHT",
+	"description": "",
+	"start_url": "index.html",
+	"display": "fullscreen",
+	"orientation": "any",
+	"background_color": "#ffffff",
+	"icons": []
+}

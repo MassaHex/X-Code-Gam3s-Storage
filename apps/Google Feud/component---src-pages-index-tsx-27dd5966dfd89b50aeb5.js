@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoogle_feud=self.webpackChunkgoogle_feud||[]).push([[691],{6854:function(e,l,t){t.r(l);var n=t(7294),u=t(5414),o=t(222),r=t(3159);l.default=function(){return n.createElement(n.Fragment,null,n.createElement(u.q,null,n.createElement("title",null,"Google Feud | How does Google autocomplete this query?")),n.createElement(r.Z,null),n.createElement(o.l,null))}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-27dd5966dfd89b50aeb5.js.map

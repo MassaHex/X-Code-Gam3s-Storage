@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html style="margin: 0; padding: 0; overflow: hidden;" lang="en-us">
+  <head style="margin: 0; padding: 0; overflow: hidden;">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Exploros</title><meta name="robots" content="noindex">
+    <link rel="icon" href="Exploros.png">
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Exploro.json");
+    </script>
+    <script>
+   const iframe = document.getElementById('gameContainer');
+
+   document.addEventListener('fullscreenchange', () => {
+      if (document.fullscreenElement) {
+         iframe.style.width = '100vw';
+         iframe.style.height = '100vh';
+      } else {
+         iframe.style.width = '100%';
+         iframe.style.height = '100%';
+      }
+   });
+</script>
+  </head>
+  <body style="margin: 0; padding: 0; overflow: hidden;">
+    <div id="gameContainer" style="width: 100vw; height: 100vh; margin: auto"></div>
+  </body>
+</html>
