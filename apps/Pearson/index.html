@@ -775,7 +775,7 @@ gadgets.config.init({"core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest","p
 
 
 </head><body dir="ltr"><script>
-		var gameConfig = {
+		var pearsonConfig = {
 			swfUrl: "https://classlink.is-a-good.dev/apps/Pearson/bim.swf"		
 		}
 </script>
@@ -836,8 +836,8 @@ gadgets.config.init({"core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest","p
 		})());
 		import {
 			createPearson
-		} from './wasm/waflash-player.min.js';
-		createPearson(gameConfig.swfUrl, window.wafOptions || {});
+		} from './wasm/pearson-player.min.js';
+		createPearson(pearsonConfig.swfUrl, window.wafOptions || {});
 	</script>
 </div>
 <script src="./scr.js"></script>
