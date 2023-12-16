@@ -217,7 +217,7 @@ function CMain(oData){
     this.stopUpdate = function(){
         _bUpdate = false;
         createjs.Ticker.paused = true;
-        $("#block_game").css("display","block");
+        $("#block_safari").css("display","block");
         
         if(DISABLE_SOUND_MOBILE === false || s_bMobile === false){
             Howler.mute(true);
@@ -229,7 +229,7 @@ function CMain(oData){
         s_iPrevTime = new Date().getTime();
         _bUpdate = true;
         createjs.Ticker.paused = false;
-        $("#block_game").css("display","none");
+        $("#block_safari").css("display","none");
         
         if(DISABLE_SOUND_MOBILE === false || s_bMobile === false){
             if(s_bAudioActive){
