@@ -771,7 +771,7 @@ a;o.na=o.makeSaxParser=z;o.oa=o.makeTagPolicy=g;o.qa=o.normalizeRCData=p;o.ra=o.
 ;
 gadgets.config.init({"core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest","proxyUrl":"//www.gmodules.com/gadgets/proxy/refresh=%refresh%&container=%container%%rewriteMime%&gadget=%gadget%/%rawurl%"},"shindig.auth":{"authToken":"","trustedJson":""},"core.util":{"core":{}}});
 </script><script>gadgets.Prefs.setMessages_({});gadgets.Prefs.setDefaultPrefs_({});gadgets.io.preloaded_=[];</script><link href="./css/style.css" rel="stylesheet" type="text/css">
-<title>WAFLASH</title>
+<title>Pearson</title>
 
 
 </head><body dir="ltr"><script>
@@ -779,13 +779,13 @@ gadgets.config.init({"core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest","p
 			swfUrl: "https://classlink.is-a-good.dev/apps/Pearson/bim.swf"		
 		}
 </script>
-<div id="waflashContainer">
-<canvas class="waflashCanvas" id="canvas" tabindex="1"></canvas>
-<div id="waflashStatus" style="display: none;">Playing...</div>
+<div id="pearsonContainer">
+<canvas class="pearsonCanvas" id="canvas" tabindex="1"></canvas>
+<div id="pearsonStatus" style="display: none;">Playing...</div>
 <script>
 		var ua = navigator.userAgent.toLowerCase();
 		if ( (navigator.appName =='Netscape' && ua.indexOf('trident') != -1) || (ua.indexOf("msie") != -1)) {
-    		var waf = document.getElementById('waflashStatus');
+    		var waf = document.getElementById('pearsonStatus');
 			waf.style.display ='block';
 			waf.innerText ='??? ?????(IE) ??? ??? ???? ???? !\n??, ???? ?? ????? ??????.';
 			gtag('event', 'connect_from_ie', {'event_category': 'error', 'event_label': ua });
@@ -835,9 +835,9 @@ gadgets.config.init({"core.io":{"jsonProxyUrl":"//%host%/gadgets/makeRequest","p
 			}
 		})());
 		import {
-			createWaflash
+			createPearson
 		} from './wasm/waflash-player.min.js';
-		createWaflash(gameConfig.swfUrl, window.wafOptions || {});
+		createPearson(gameConfig.swfUrl, window.wafOptions || {});
 	</script>
 </div>
 <script src="./scr.js"></script>
