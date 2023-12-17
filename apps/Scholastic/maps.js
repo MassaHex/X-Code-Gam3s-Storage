@@ -37,7 +37,7 @@ function resetMaps() {
   startLoadingMaps();
 }
 
-// A new map, which contains general settings for the game run
+// A new map, which contains general settings for the app run
 function Map() {
   this.underwater = this.current_character = this.current_solid = this.current_scenery = this.xloc = 0;
   this.canscroll = true;
@@ -74,7 +74,7 @@ function setAreaSetting(area, setting, sound) {
   else goOntoLand();
   
   if(sound) playTheme();
-  if(gameon) clearAllSprites();
+  if(appon) clearAllSprites();
   map.shifting = false;
 }
 
@@ -111,7 +111,7 @@ function PreThing(xloc, yloc, type) {
 /* Map Setting */
 // Resets the board and starts
 function setMap(one, two) {
-  if(!gameon) return;
+  if(!appon) return;
   
   // Unless it's ok to, kill the editor
   if(!window.canedit && window.editing) editorClose(true);
@@ -162,7 +162,7 @@ function setMap(one, two) {
 // LocationType is either 1 (down) or -1 (up)
 // Down means Mario is moving down; Up means Mario is moving up.
 function setMapRandom(transport) {
-  if(!gameon) return;
+  if(!appon) return;
   
   resetSeed();
   
@@ -192,10 +192,10 @@ function shiftToLocation(loc) {
   if(typeof(loc) == "number") 
     loc = map.locs[loc]; 
   
-  // Reset everything game-related
+  // Reset everything app-related
   pause();
-  resetGameState();
-  resetGameScreenPosition();
+  resetappState();
+  resetappScreenPosition();
   resetQuadrants();
   
   // Set this location's area as current
@@ -258,7 +258,7 @@ function clearTexts() {
 }
 function setAreaPostCreation() {
   map.current_character = map.current_solid = map.current_scenery = 0;
-  area.width = max(area.width, gamescreen.width);
+  area.width = max(area.width, appscreen.width);
   
   // Reset gravity and underwater
   map.underwater = map.area.underwater;
@@ -322,7 +322,7 @@ function setLocationGeneration(num) {
 function spawnMap() {
   var area = map.area,
       rightdiff = quads.rightdiff,
-      screenright = gamescreen.right + rightdiff,
+      screenright = appscreen.right + rightdiff,
       quadswidtht2 = quads.width * 2 + rightdiff,
       screenrightpq = screenright + quadswidtht2,
       arr, arrlen, prething, thing, current;
@@ -333,7 +333,7 @@ function spawnMap() {
   current = map.current_character;
   while(arrlen > current && screenright >= (prething = arr[current]).xloc * unitsize) {
     thing = prething.object;
-    addThing(thing, prething.xloc * unitsize - gamescreen.left, prething.yloc * unitsize);
+    addThing(thing, prething.xloc * unitsize - appscreen.left, prething.yloc * unitsize);
     thing.placenum = current;
     ++current;
   }
@@ -345,7 +345,7 @@ function spawnMap() {
   current = map.current_solid;
   while(arrlen > current && screenrightpq >= (prething = arr[current]).xloc * unitsize) {
     thing = prething.object;
-    addThing(thing, prething.xloc * unitsize - gamescreen.left, prething.yloc * unitsize);
+    addThing(thing, prething.xloc * unitsize - appscreen.left, prething.yloc * unitsize);
     thing.placenum = current;
     ++current;
   }
@@ -357,7 +357,7 @@ function spawnMap() {
   current = map.current_scenery;
   while(arrlen > current && screenrightpq >= (prething = arr[current]).xloc * unitsize) {
     thing = prething.object;
-    addThing(thing, prething.xloc * unitsize - gamescreen.left, prething.yloc * unitsize);
+    addThing(thing, prething.xloc * unitsize - appscreen.left, prething.yloc * unitsize);
     thing.placenum = current;
     ++current;
   }
@@ -739,7 +739,7 @@ function pushPreWarpWorld(xloc, yloc, worlds, offset, block) {
   }
 }
 
-// Can be called either in a map function or during gameplay
+// Can be called either in a map function or during appplay
 function goUnderWater() {
   if(window.map) {
     if(map.area) {
@@ -773,7 +773,7 @@ function setMapGravity() {
 }
 
 function setBStretch() {
-  window.bstretch = gamescreen.width / 8 - 2; 
+  window.bstretch = appscreen.width / 8 - 2; 
 }
 
 /*
@@ -916,8 +916,8 @@ function pushPreShroom(xloc, yloc, width) {
 
 function pushPrePipe(xloc, yloc, height, pirhana, intoloc, exitloc) {
   if(!isFinite(height)) {
-    height = gamescreen.height;
-    yloc -= gamescreen.height;
+    height = appscreen.height;
+    yloc -= appscreen.height;
   }
   
   var prepipe = pushPreThing(Pipe, xloc, yloc + height, height / 8, intoloc),

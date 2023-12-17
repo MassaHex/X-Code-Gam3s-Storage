@@ -34,7 +34,7 @@ function loadEditor(noreset) {
   classAdd(editor.sidebar, "expanded");
   TimeHandler.addEvent(classRemove, 35, editor.sidebar, "expanded");
   
-  // Let the rest of the game know what's going on
+  // Let the rest of the app know what's going on
   map.shifting = false;
   window.editing = true;
 }
@@ -996,7 +996,7 @@ function editorControlSave() {
   var rawfunc = editor.rawfunc = editorGetRawFunc(),
       title = "<span style='font-size:1.4em;'>Hit Submit below to start playing!</span>",
       p = "<p style='font-size:.7em;line-height:140%'>This map will be resumed automatically the next time you use the editor on this computer.<br>Alternately, you may copy this text to work on again later using Load (the button next to Save). </p>",
-      menu = editorCreateInputWindow(title + "<br>" + p, rawfunc, editorSubmitGameFuncPlay);
+      menu = editorCreateInputWindow(title + "<br>" + p, rawfunc, editorSubmitappFuncPlay);
   
   return rawfunc;
 }
@@ -1056,7 +1056,7 @@ function editorPreStatement(placer) {
   this.placer = placer;
   
   // Positioning is important
-  this.xloc = (gamescreen.left + placer.left) / unitsize;
+  this.xloc = (appscreen.left + placer.left) / unitsize;
   this.yloc = map.floor - placer.top / unitsize;
   
   // Reference and arguments are used to make the statement
@@ -1192,7 +1192,7 @@ function addThingsToPlaced() {
 
 function editorCreateInputWindow(blurb, value, callback) {
   // Create the elements
-  var bigwidth = gamescreen.unitwidth,
+  var bigwidth = appscreen.unitwidth,
       div = editor.input_window = createElement("div", {
         id: "input_window",
         innerHTML: blurb || "",
@@ -1299,11 +1299,11 @@ function setEditorLocalRetrieval() {
   var found = localStorage.editorLastFunc;
   if(!found) return;
   editor.rawfunc = round;
-  editorSubmitGameFunc();
+  editorSubmitappFunc();
 }
 
 // Starts the editor with a particular function from editor.rawfunc
-function editorSubmitGameFunc() {
+function editorSubmitappFunc() {
   // If there's no raw function known, don't do anything
   if(!window.editor || !editor.rawfunc) return loadEditor();
   
@@ -1325,10 +1325,10 @@ function editorSubmitGameFunc() {
   editorCloseInputWindow();
 }
 
-// Submits the game function, and starts playing
-function editorSubmitGameFuncPlay() {
+// Submits the app function, and starts playing
+function editorSubmitappFuncPlay() {
   editorPreventClicks();
-  editorSubmitGameFunc();
+  editorSubmitappFunc();
   editorStartPlaying();
 }
 
@@ -1339,7 +1339,7 @@ function editorSubmitLoad() {
   var rawfunc = editor.window_input.value;
   loadEditor(); 
   editor.rawfunc = rawfunc;
-  editorSubmitGameFunc();
+  editorSubmitappFunc();
 }
 
 // Allows Mario to roam the world
@@ -1370,7 +1370,7 @@ function setEditorLocalRetrieval() {
   var found = localStorage.editorLastFunc;
   if(!found) return;
   editor.rawfunc = found;
-  editorSubmitGameFunc();
+  editorSubmitappFunc();
   editorStoreLocally();
   
   // For each thing now placed:

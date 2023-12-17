@@ -721,7 +721,7 @@ function podobooJump(me) {
 }
 function movePodobooUp(me) {
   shiftVert(me, me.speed, true);
-  if(me.top - gamescreen.top > me.heightfall) return;
+  if(me.top - appscreen.top > me.heightfall) return;
   me.nofall = false;
   me.movement = movePodobooSwitch;
 }
@@ -1057,7 +1057,7 @@ function startCheepSpawn() {
     function() {
       if(!map.zone_cheeps) return true;
       var spawn = new Thing(CheepCheep, true, true);
-      addThing(spawn, Math.random() * mario.left * mario.maxspeed / unitsized2, gamescreen.height * unitsize);
+      addThing(spawn, Math.random() * mario.left * mario.maxspeed / unitsized2, appscreen.height * unitsize);
       spawn.xvel = Math.random() * mario.maxspeed;
       spawn.yvel = unitsize * -2.33;
       flipHoriz(spawn);
@@ -1119,7 +1119,7 @@ function moveLakituInit2(me) {
 // This fluctuates between +/-32 (* unitsize)
 function moveLakitu(me) {
   // If mario is moving quickly to the right, move in front of him and stay there
-  if(mario.xvel > unitsized8 && mario.left > gamescreen.width * unitsized2) {
+  if(mario.xvel > unitsized8 && mario.left > appscreen.width * unitsized2) {
     if(me.left < mario.right + unitsizet16) {
       // To the 'left' of mario
       slideToXLoc(me, mario.right + unitsizet32 + mario.xvel, mario.maxspeed * 1.4);
@@ -1787,13 +1787,13 @@ function killMario(me, big) {
   // If it's in editor, (almost) immediately set map
   if(window.editing) {
     setTimeout(function() {
-      editorSubmitGameFuncPlay();
+      editorSubmitappFuncPlay();
       editor.playing = editor.playediting = true;
     }, 35 * timer);
   }
-  // If the map is normal, or failing that a game over is reached, timeout a reset
+  // If the map is normal, or failing that a app over is reached, timeout a reset
   else if(!map.random || data.lives.amount <= 0) {
-    window.reset = setTimeout(data.lives.amount ? setMap : gameOver, timer * 280);
+    window.reset = setTimeout(data.lives.amount ? setMap : appOver, timer * 280);
   }
   // Otherwise it's random; spawn him again
   else {
@@ -1828,33 +1828,33 @@ function marioDropsIn() {
   else mario.gravity = gravity / 2.8;
 }
 
-function gameOver() {
-  // Having a gamecount of -1 truly means it's all over
-  gameon = false;
+function appOver() {
+  // Having a appcount of -1 truly means it's all over
+  appon = false;
   pause();
   pauseTheme();
-  play("Game Over");
+  play("app Over");
   
-  var innerHTML = "<div style='font-size:49px;padding-top: " + (innerHeight / 2 - 28/*49*/) + "px'>GAME OVER</div>";
+  var innerHTML = "<div style='font-size:49px;padding-top: " + (innerHeight / 2 - 28/*49*/) + "px'>app OVER</div>";
   // innerHTML += "<p style='font-size:14px;opacity:.49;width:490px;margin:auto;margin-top:49px;'>";
-  // innerHTML += "You have run out of lives. Maybe you're not ready for playing real games...";
+  // innerHTML += "You have run out of lives. Maybe you're not ready for playing real apps...";
   innerHTML += "</p>";
   
   body.className = "Night"; // to make it black
   body.innerHTML = innerHTML;
   
-  window.gamecount = Infinity;
+  window.appcount = Infinity;
   clearMarioStats();
   
-  setTimeout(gameRestart, 7000);
+  setTimeout(appRestart, 7000);
 }
 
-function gameRestart() {
+function appRestart() {
   seedlast = .007;
   body.style.visibility = "hidden";
   body.innerHTML = body.style.paddingTop = body.style.fontSize = "";
   body.appendChild(canvas);
-  gameon = true;
+  appon = true;
   map.random ? setMapRandom() : setMap(1,1);
   TimeHandler.addEvent(function() { body.style.visibility = ""; });
   setLives(3);
@@ -2570,7 +2570,7 @@ function FlagOff(me, pole) {
 function endLevelPoints(me, detector) {
   if(!me || !me.mario) return;
   
-  // Stop the game, and get rid of mario and the detectors
+  // Stop the app, and get rid of mario and the detectors
   notime = nokeys = true;
   killNormal(detector);
   killNormal(me);
@@ -2909,11 +2909,11 @@ function collideLocationShifter(me, shifter) {
 
 function ScrollBlocker(me, big) {
   me.width = 40;
-  me.height = 140;  //gamescreen.height;
+  me.height = 140;  //appscreen.height;
   me.nocollide = me.hidden = true;
   me.big = big;
   me.movement = function() {
-    if(me.left - mario.xvel <= gamescreen.right - gamescreen.left) {
+    if(me.left - mario.xvel <= appscreen.right - appscreen.left) {
       map.canscroll = me.movement = false;
       map.noscroll = me.big; // really just for random
     }
@@ -2923,10 +2923,10 @@ function ScrollBlocker(me, big) {
 
 function ScrollEnabler(me) {
   me.width = 40;
-  me.height = 140;//gamescreen.height;
+  me.height = 140;//appscreen.height;
   me.hidden = true;
   me.collide = function() {
-    if(me.left - mario.xvel <= gamescreen.right - gamescreen.left) {
+    if(me.left - mario.xvel <= appscreen.right - appscreen.left) {
       map.canscroll = me.nocollide = true;
     }
   }
@@ -2935,7 +2935,7 @@ function ScrollEnabler(me) {
 
 function zoneToggler(me, func) {
   me.width = 40;
-  me.height = 140;//gamescreen.height;
+  me.height = 140;//appscreen.height;
   me.func = func;
   me.hidden = true;
   me.collide = function(me, zone) {
@@ -2947,7 +2947,7 @@ function zoneToggler(me, func) {
 
 function GenerationStarter(me, func, arg) {
   me.width = 8;
-  me.height = gamescreen.height + 20;
+  me.height = appscreen.height + 20;
   me.func = func;
   me.arg = arg;
   me.collide = function(character, me) {
@@ -2958,7 +2958,7 @@ function GenerationStarter(me, func, arg) {
   me.movement = function(me) {
     me.movement = false;
     addClass(me, "used");
-    me.func((gamescreen.left + me.right) / unitsize, me.arg);
+    me.func((appscreen.left + me.right) / unitsize, me.arg);
   };
   setSolid(me, "generationstarter");
   me.hidden = true;
@@ -2972,7 +2972,7 @@ function castleDecider(me, xloc, secnum) {
   me.section = map.area.sections[secnum];
   me.next = map.area.sections[secnum + 1];
   me.movement = function(me) {
-    if(me.left > gamescreen.right - gamescreen.left || !me.section.activated) return;
+    if(me.left > appscreen.right - appscreen.left || !me.section.activated) return;
     var section = me.section;
     section.numpass = section.colliders.length =  0;
     if(section.passed) {

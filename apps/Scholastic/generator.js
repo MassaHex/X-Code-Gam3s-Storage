@@ -292,8 +292,8 @@ function endCastleOutsideRandom(xloc) {
     break;
   }
   
-  pushPreFloor(xloc + (leadwidth + 2) * 8, 0, round(gamescreen.width / 8));
-  endCastleOutside(xloc + (leadwidth + nextwidth) * 8 + 4, 0, true, round(gamescreen.width / 8));
+  pushPreFloor(xloc + (leadwidth + 2) * 8, 0, round(appscreen.width / 8));
+  endCastleOutside(xloc + (leadwidth + nextwidth) * 8 + 4, 0, true, round(appscreen.width / 8));
 }
 
 function startRandomSectionCastle(xloc) {
@@ -1168,7 +1168,7 @@ function addDistanceCounter() {
             });
   body.appendChild(counter);
   TimeHandler.addEventInterval(function(counter) {
-    data.traveled = max(0,Math.round((mario.right + gamescreen.left) / unitsizet8) - 3);
+    data.traveled = max(0,Math.round((mario.right + appscreen.left) / unitsizet8) - 3);
     counter.innerText = (data.traveledold + data.traveled) + " blocks traveled";
   }, 3, Infinity, counter);
 }

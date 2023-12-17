@@ -604,9 +604,9 @@ function moveSliding(me) {
   (me.movement = moveSlidingReal)(me);
 }
 function moveSlidingReal(me) {
-  if(gamescreen.left + me.left < me.begin)
+  if(appscreen.left + me.left < me.begin)
     me.xvel = min(me.xvel + unitsized32, me.maxvel);
-  else if(gamescreen.left + me.right > me.end)
+  else if(appscreen.left + me.right > me.end)
     me.xvel = max(me.xvel - unitsized32, -me.maxvel);
   movePlatformNorm(me);
 }

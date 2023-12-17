@@ -2,8 +2,8 @@ var loadstart,
     // Security fixes
     isLocal,
     // References
-    elemGame,
-    game,
+    elemapp,
+    app,
     body,
     elemSelect;
 
@@ -33,12 +33,12 @@ function setLocalStatus() {
 }
 
 function setReferences() {
-  // Set the game references (elemGame is not the same as the content window)
-  window.elemGame = document.getElementById("game");
-  window.game = window.elemGame.contentWindow;
-  // Local games may not allow contentWindow shenanigans
+  // Set the app references (elemapp is not the same as the content window)
+  window.elemapp = document.getElementById("app");
+  window.app = window.elemapp.contentWindow;
+  // Local apps may not allow contentWindow shenanigans
   if(!isLocal)
-    window.game.parentwindow = window;
+    window.app.parentwindow = window;
   
   window.body = document.body;
   window.elemSelect = document.getElementById("in_mapselect");
@@ -59,20 +59,20 @@ function setMapSelector(timed) {
       innerHTML += createAdderMap(i, j);
   
   // Add that HTML to #in_mapselect, along with a big one for random maps
-  elemSelect.innerHTML += innerHTML + createAdderBigMap("Map Generator!", "setGameMapRandom");
+  elemSelect.innerHTML += innerHTML + createAdderBigMap("Map Generator!", "setappMapRandom");
   
-  // If this isn't local, actually responding to the game loading maps is doable
+  // If this isn't local, actually responding to the app loading maps is doable
   // See load.js
   if(!isLocal) {
     // This will allow for onMapLoad
-    game.parentwindow = window;
+    app.parentwindow = window;
     
-    // If the game already has a map, set the class to be loaded
+    // If the app already has a map, set the class to be loaded
     var elem;
     for(i = 1; i <= 8; ++i)
       for(j = 1; j <= 4; ++j) {
-        console.log("World" + i + String(j), game["World" + i + String(j)]);
-        if(game["World" + i + String(j)] && (elem = document.getElementById("maprect" + i + "," + j)))
+        console.log("World" + i + String(j), app["World" + i + String(j)]);
+        if(app["World" + i + String(j)] && (elem = document.getElementById("maprect" + i + "," + j)))
           elem.className = "maprect";
       }
   }
@@ -82,7 +82,7 @@ function createAdderMap(i, j) {
   var adder = "";
   adder += "<div class='maprectout'>";
   adder += "<div id='maprect" + i + "," + j;
-  adder += "' class='maprect" +  (isLocal ? "" : " off") + "' onclick='setGameMap(" + i + "," + j + ")'>";
+  adder += "' class='maprect" +  (isLocal ? "" : " off") + "' onclick='setappMap(" + i + "," + j + ")'>";
   adder += i + "-" + j;
   adder += "</div></div>";
   return adder;
@@ -97,17 +97,17 @@ function createAdderBigMap(name, onclick, giant) {
   return adder;
 }
 
-function setGameMap(one, two) {
+function setappMap(one, two) {
   // If it hasn't been loaded yet, don't do anything
   if(document.getElementById("maprect" + one + "," + two).className != "maprect")
     return;
   
   // Otherwise go to the map
-  game.postMessage({
+  app.postMessage({
     type: "setMap",
     map: [one, two]
   }, "*");
-  game.focus();
+  app.focus();
 }
 
 // See load.js
@@ -117,12 +117,12 @@ function onMapLoad(one, two) {
     elem.className = "maprect";
 }
 
-function setGameMapRandom() {
-  game.postMessage({
+function setappMapRandom() {
+  app.postMessage({
     type: "setMap",
     map: ["Random", "Overworld"]
   }, "*");
-  game.focus();
+  app.focus();
 }
 
 function setLevelEditor() {
@@ -133,10 +133,10 @@ function setLevelEditor() {
 }
 
 function startEditor() {
-  game.postMessage({
+  app.postMessage({
     type: "startEditor"
   }, "*");
-  game.focus();
+  app.focus();
 }
 
 
@@ -147,16 +147,16 @@ function setCheats() {
   console.log("If you'd like, go ahead and look around the source code. There are a few surprises you might have fun with... ;)");
   console.log("http://www.github.com/DiogenesTheCynic/FullScreenMario");
   window.cheats = {
-    Change_Map: "game.setMap([#,#] or #,#);",
-    Change_Map_Location: "game.shiftToLocation(#);",
-    Fast_Forward: "game.fastforward(amount; 1 by default);",
-    Life: "game.gainLife(# amount or Infinity)",
-    Low_Gravity: "game.mario.gravity = game.gravity /= 2;",
-    Lulz: "game.lulz();",
-    Random_Map: "game.setMapRandom();",
-    Shroom: "game.marioShroom(game.mario)",
-    Star_Power: "game.marioStar(game.mario)",
-    Unlimited_Time: "game.data.time.amount = Infinity;"
+    Change_Map: "app.setMap([#,#] or #,#);",
+    Change_Map_Location: "app.shiftToLocation(#);",
+    Fast_Forward: "app.fastforward(amount; 1 by default);",
+    Life: "app.gainLife(# amount or Infinity)",
+    Low_Gravity: "app.mario.gravity = app.gravity /= 2;",
+    Lulz: "app.lulz();",
+    Random_Map: "app.setMapRandom();",
+    Shroom: "app.marioShroom(app.mario)",
+    Star_Power: "app.marioStar(app.mario)",
+    Unlimited_Time: "app.data.time.amount = Infinity;"
   }
   cheatsize = 0;
   for(var i in cheats)

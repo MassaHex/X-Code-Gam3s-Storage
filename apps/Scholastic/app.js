@@ -1,7 +1,7 @@
 /* mario.js */
 // Starts everything.
 
-function FullScreenMario() {
+function startapp() {
   var time_start = Date.now();
   
   // Thanks, Obama...
@@ -47,7 +47,7 @@ function FullScreenMario() {
   resetSounds();
   
   // With that all set, set the map to World11.
-  window.gameon = true;
+  window.appon = true;
   setMap(1,1);
   
   // Load sounds after setting the map, since it uses clearAllTimeouts
@@ -87,7 +87,7 @@ function resetMeasurements() {
   window.castlev  = -48;
   window.paused   = true;
   
-  resetGameScreen();
+  resetappScreen();
   if(!window.parentwindow) window.parentwindow = false;
 }
 
@@ -111,11 +111,11 @@ function resetTimer(num) {
   window.time_prev = Date.now();
 }
 
-function resetGameScreen() {
-  window.gamescreen = new getGameScreen();
+function resetappScreen() {
+  window.appscreen = new getappScreen();
 }
-function getGameScreen() {
-  resetGameScreenPosition(this);
+function getappScreen() {
+  resetappScreenPosition(this);
   // Middlex is static and only used for scrolling to the right
   this.middlex = (this.left + this.right) / 2;
   // this.middlex = (this.left + this.right) / 3;
@@ -129,8 +129,8 @@ function getGameScreen() {
   // The distance at which Things die from falling
   this.deathheight = this.bottom + 48;
 }
-function resetGameScreenPosition(me) {
-  me = me || window.gamescreen;
+function resetappScreenPosition(me) {
+  me = me || window.appscreen;
   me.left = me.top = 0;
   me.bottom = innerHeight;
   me.right = innerWidth;
@@ -151,22 +151,22 @@ function resetEvents() {
   });
 }
 
-// Variables regarding the state of the game
+// Variables regarding the state of the app
 // This is called in setMap to reset everything
-function resetGameState(nocount) {
+function resetappState(nocount) {
   // HTML is reset here
   clearAllTimeouts();
   // Also reset data
   resetData();
   window.nokeys = window.spawning = window.spawnon =
     window.notime = window.editing = window.qcount = window.lastscroll = 0;
-  window.paused = window.gameon = true;
-  // Shifting location shouldn't wipe the gamecount (for key histories)
-  if(!nocount) window.gamecount = 0;
+  window.paused = window.appon = true;
+  // Shifting location shouldn't wipe the appcount (for key histories)
+  if(!nocount) window.appcount = 0;
   // And quadrants
   resetQuadrants();
   // Keep a history of pressed keys
-  window.gamehistory = [];
+  window.apphistory = [];
   // Clear audio
   pauseAllSounds();
   sounds = {};
@@ -176,8 +176,8 @@ function scrollWindow(x, y) {
   x = x || 0; y = y || 0;
   var xinv = -x, yinv = -y;
   
-  gamescreen.left += x; gamescreen.right += x;
-  gamescreen.top += y; gamescreen.bottom += y;
+  appscreen.left += x; appscreen.right += x;
+  appscreen.top += y; appscreen.bottom += y;
   
   shiftAll(characters, xinv, yinv);
   shiftAll(solids, xinv, yinv);

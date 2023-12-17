@@ -42,7 +42,7 @@ function setDataDisplay() {
             id: "data_display",
             className: "display",
             style: {
-              width: (gamescreen.right + 14) + "px"
+              width: (appscreen.right + 14) + "px"
             }}),
       elems = ["score", "coins", "world", "time", "lives"];
   body.appendChild(display);
@@ -60,7 +60,7 @@ function clearDataDisplay() {
 }
 
 // Starts the interval of updating data time
-// 1 game second is about 25*16.667=416.675ms
+// 1 app second is about 25*16.667=416.675ms
 function startDataTime() {
   TimeHandler.addEventInterval(updateDataTime, 25, Infinity, data.time);
 }

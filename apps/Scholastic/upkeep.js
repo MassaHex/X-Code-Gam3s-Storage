@@ -71,7 +71,7 @@ function maintainSolids(update) {
 }
 
 function maintainCharacters(update) {
-  var delx = gamescreen.right + quads.rightdiff,
+  var delx = appscreen.right + quads.rightdiff,
       character, i;
   for(i = 0; i < characters.length; ++i) {
     character = characters[i];
@@ -99,12 +99,12 @@ function maintainCharacters(update) {
     
     // Movement or deletion
     // To do: rethink this...
-    //// Good for performance if gamescreen.bottom - gamescreen.top is saved in screen and updated on shift
+    //// Good for performance if appscreen.bottom - appscreen.top is saved in screen and updated on shift
     // To do: is map.shifting needed?
     if(character.alive) {
       if(character.type != "mario" && !map.shifting && 
           (character.numquads == 0 || character.left > delx) && !character.outerok) {
-          // (character.top > gamescreen.bottom - gamescreen.top || character.left < + quads.width * -1)) {
+          // (character.top > appscreen.bottom - appscreen.top || character.left < + quads.width * -1)) {
         deleteThing(character, characters, i);
       }
       else {
@@ -139,7 +139,7 @@ function maintainMario(update) {
       }
     }
     // Mario has fallen too far
-    if(!mario.piping && !mario.dying && mario.top > gamescreen.deathheight) {
+    if(!mario.piping && !mario.dying && mario.top > appscreen.deathheight) {
       // If the map has an exit loc (cloud world), transport there
       if(map.exitloc) {
         // Random maps will pretend he died
@@ -151,7 +151,7 @@ function maintainMario(update) {
         // Otherwise just shift to the location
         return shiftToLocation(map.exitloc);
       }
-      // Otherwise, since Mario is below the gamescreen, kill him dead
+      // Otherwise, since Mario is below the appscreen, kill him dead
       clearMarioStats();
       killMario(mario, 2);
     }
@@ -159,9 +159,9 @@ function maintainMario(update) {
   
   // Mario is moving to the right
   if(mario.xvel > 0) {
-    if(mario.right > gamescreen.middlex) {
-      // If Mario is to the right of the gamescreen's middle, move the gamescreen
-      if(mario.right > gamescreen.right - gamescreen.left)
+    if(mario.right > appscreen.middlex) {
+      // If Mario is to the right of the appscreen's middle, move the appscreen
+      if(mario.right > appscreen.right - appscreen.left)
         mario.xvel = min(0, mario.xvel);
     }
   }
@@ -176,7 +176,7 @@ function maintainMario(update) {
   
   // Scrolloffset is how far over the middle mario's right is
   // It's multiplied by 0 or 1 for map.canscroll
-  window.scrolloffset = (map.canscroll/* || (map.random && !map.noscroll)*/) * (mario.right - gamescreen.middlex);
+  window.scrolloffset = (map.canscroll/* || (map.random && !map.noscroll)*/) * (mario.right - appscreen.middlex);
   if(scrolloffset > 0 && !map.shifting) {
     scrollWindow(lastscroll = round(min(mario.scrollspeed, scrolloffset)));
   }

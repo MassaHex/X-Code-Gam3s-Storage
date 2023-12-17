@@ -50,7 +50,7 @@
 	 * @class AnimFrameUpdateStrategy
 	 * @constructor
 	 * @param {Function} [requestAnimationFrame] function to use for timer creation
-	 * @module Gamepad
+	 * @module apppad
 	 */
 	var AnimFrameUpdateStrategy = function(requestAnimationFrame) {
 		var that = this;
@@ -94,11 +94,11 @@
 	 * This strategy gives the user the ability to call the library internal
 	 * update function on request. Use this strategy if you already have a
 	 * timer function running by requestAnimationFrame and you need fine control
-	 * over when the gamepads are updated.
+	 * over when the apppads are updated.
 	 *
 	 * @class ManualUpdateStrategy
 	 * @constructor
-	 * @module Gamepad
+	 * @module apppad
 	 */
 	var ManualUpdateStrategy = function() {
 
@@ -127,13 +127,13 @@
 	 * @class WebKitPlatform
 	 * @constructor
 	 * @param {Object} listener the listener to provide _connect and _disconnect callbacks
-	 * @param {Function} gamepadGetter the poll function to return an array of connected gamepads
-	 * @module Gamepad
+	 * @param {Function} apppadGetter the poll function to return an array of connected apppads
+	 * @module apppad
 	 */
-	var WebKitPlatform = function(listener, gamepadGetter) {
+	var WebKitPlatform = function(listener, apppadGetter) {
 		this.listener = listener;
-		this.gamepadGetter = gamepadGetter;
-		this.knownGamepads = [];
+		this.apppadGetter = apppadGetter;
+		this.knownapppads = [];
 	};
 
 	/**
@@ -148,13 +148,13 @@
 		var navigator = window && window.navigator;
 
 		if (navigator) {
-			if (typeof(navigator.webkitGamepads) !== 'undefined') {
+			if (typeof(navigator.webkitapppads) !== 'undefined') {
 				platform = new WebKitPlatform(listener, function() {
-					return navigator.webkitGamepads;
+					return navigator.webkitapppads;
 				});
-			} else if (typeof(navigator.webkitGetGamepads) !== 'undefined') {
+			} else if (typeof(navigator.webkitGetapppads) !== 'undefined') {
 				platform = new WebKitPlatform(listener, function() {
-					return navigator.webkitGetGamepads();
+					return navigator.webkitGetapppads();
 				});
 			}
 		}
@@ -188,48 +188,48 @@
 	};
 
 	/**
-	 * Queries the currently connected gamepads and reports any changes.
+	 * Queries the currently connected apppads and reports any changes.
 	 * @method update
 	 */
 	WebKitPlatform.prototype.update = function() {
 		var that = this;
-		var gamepads = Array.prototype.slice.call(this.gamepadGetter(), 0);
-		var gamepad;
+		var apppads = Array.prototype.slice.call(this.apppadGetter(), 0);
+		var apppad;
 		var i;
 
-		for (i = this.knownGamepads.length - 1; i >= 0; i--) {
-			gamepad = this.knownGamepads[i];
-			if (gamepads.indexOf(gamepad) < 0) {
-				this.knownGamepads.splice(i, 1);
-				this.listener._disconnect(gamepad);
+		for (i = this.knownapppads.length - 1; i >= 0; i--) {
+			apppad = this.knownapppads[i];
+			if (apppads.indexOf(apppad) < 0) {
+				this.knownapppads.splice(i, 1);
+				this.listener._disconnect(apppad);
 			}
 		}
 
-		for (i = 0; i < gamepads.length; i++) {
-			gamepad = gamepads[i];
-			if (gamepad && (that.knownGamepads.indexOf(gamepad) < 0)) {
-				that.knownGamepads.push(gamepad);
-				that.listener._connect(gamepad);
+		for (i = 0; i < apppads.length; i++) {
+			apppad = apppads[i];
+			if (apppad && (that.knownapppads.indexOf(apppad) < 0)) {
+				that.knownapppads.push(apppad);
+				that.listener._connect(apppad);
 			}
 		}
 	};
 
 	/**
-	 * This platform is for mozilla based environments that provide gamepad
+	 * This platform is for mozilla based environments that provide apppad
 	 * updates via events.
 	 *
 	 * @class FirefoxPlatform
 	 * @constructor
-	 * @module Gamepad
+	 * @module apppad
 	 */
 	var FirefoxPlatform = function(listener) {
 		this.listener = listener;
 
-		window.addEventListener('gamepadconnected', function(e) {
-			listener._connect(e.gamepad);
+		window.addEventListener('apppadconnected', function(e) {
+			listener._connect(e.apppad);
 		});
-		window.addEventListener('gamepaddisconnected', function(e) {
-			listener._disconnect(e.gamepad);
+		window.addEventListener('apppaddisconnected', function(e) {
+			listener._disconnect(e.apppad);
 		});
 	};
 
@@ -282,21 +282,21 @@
 	FirefoxPlatform.prototype.update = nullFunction;
 
 	/**
-	 * Provides simple interface and multi-platform support for the gamepad API.
+	 * Provides simple interface and multi-platform support for the apppad API.
 	 *
 	 * You can change the deadzone and maximizeThreshold parameters to suit your
 	 * taste but the defaults should generally work fine.
 	 *
-	 * @class Gamepad
+	 * @class apppad
 	 * @constructor
 	 * @param {Object} [updateStrategy] an update strategy, defaulting to
 	 *		{{#crossLink "AnimFrameUpdateStrategy"}}{{/crossLink}}
-	 * @module Gamepad
+	 * @module apppad
 	 * @author Priit Kallas <kallaspriit@gmail.com>
 	 */
-	var Gamepad = function(updateStrategy) {
+	var apppad = function(updateStrategy) {
 		this.updateStrategy = updateStrategy || new AnimFrameUpdateStrategy();
-		this.gamepads = [];
+		this.apppads = [];
 		this.listeners = {};
 		this.platform = nullPlatform;
 		this.deadzone = 0.03;
@@ -309,7 +309,7 @@
 	 * @param {AnimFrameUpdateStrategy} AnimFrameUpdateStrategy
 	 * @param {ManualUpdateStrategy} ManualUpdateStrategy
 	 */
-	Gamepad.UpdateStrategies = {
+	apppad.UpdateStrategies = {
 		AnimFrameUpdateStrategy: AnimFrameUpdateStrategy,
 		ManualUpdateStrategy: ManualUpdateStrategy
 	};
@@ -321,7 +321,7 @@
 	 * @property PlatformFactories
 	 * @type {Array}
 	 */
-	Gamepad.PlatformFactories = [WebKitPlatform.factory, FirefoxPlatform.factory];
+	apppad.PlatformFactories = [WebKitPlatform.factory, FirefoxPlatform.factory];
 
 	/**
 	 * List of supported controller types.
@@ -332,7 +332,7 @@
 	 * @param {String} Type.XBOX XBOX controller
 	 * @param {String} Type.UNKNOWN Unknown controller
 	 */
-	Gamepad.Type = {
+	apppad.Type = {
 		PLAYSTATION: 'playstation',
 		LOGITECH: 'logitech',
 		XBOX: 'xbox',
@@ -342,14 +342,14 @@
 	/*
 	 * List of events you can expect from the library.
 	 *
-	 * CONNECTED, DISCONNECTED and UNSUPPORTED events include the gamepad in
-	 * question and tick provides the list of all connected gamepads.
+	 * CONNECTED, DISCONNECTED and UNSUPPORTED events include the apppad in
+	 * question and tick provides the list of all connected apppads.
 	 *
 	 * BUTTON_DOWN and BUTTON_UP events provide an alternative to polling button states at each tick.
 	 *
 	 * AXIS_CHANGED is called if a value of some specific axis changes.
 	 */
-	Gamepad.Event = {
+	apppad.Event = {
 		/**
 		 * Triggered when a new controller connects.
 		 *
@@ -379,36 +379,36 @@
 		 * Called regularly with the latest controllers info.
 		 *
 		 * @event tick
-		 * @param {Array} gamepads
+		 * @param {Array} apppads
 		 */
 		TICK: 'tick',
 
 		/**
-		 * Called when a gamepad button is pressed down.
+		 * Called when a apppad button is pressed down.
 		 *
 		 * @event button-down
 		 * @param {Object} event
-		 * @param {Object} event.gamepad The gamepad object
+		 * @param {Object} event.apppad The apppad object
 		 * @param {String} event.control Control name
 		 */
 		BUTTON_DOWN: 'button-down',
 
 		/**
-		 * Called when a gamepad button is released.
+		 * Called when a apppad button is released.
 		 *
 		 * @event button-up
 		 * @param {Object} event
-		 * @param {Object} event.gamepad The gamepad object
+		 * @param {Object} event.apppad The apppad object
 		 * @param {String} event.control Control name
 		 */
 		BUTTON_UP: 'button-up',
 
 		/**
-		 * Called when gamepad axis value changed.
+		 * Called when apppad axis value changed.
 		 *
 		 * @event axis-changed
 		 * @param {Object} event
-		 * @param {Object} event.gamepad The gamepad object
+		 * @param {Object} event.apppad The apppad object
 		 * @param {String} event.axis Axis name
 		 * @param {Number} event.value New axis value
 		 */
@@ -421,7 +421,7 @@
 	 *
 	 * @property StandardButtons
 	 */
-	Gamepad.StandardButtons = [
+	apppad.StandardButtons = [
 		'FACE_1', 'FACE_2', 'FACE_3', 'FACE_4',
 		'LEFT_TOP_SHOULDER', 'RIGHT_TOP_SHOULDER', 'LEFT_BOTTOM_SHOULDER', 'RIGHT_BOTTOM_SHOULDER',
 		'SELECT_BACK', 'START_FORWARD', 'LEFT_STICK', 'RIGHT_STICK',
@@ -435,7 +435,7 @@
 	 *
 	 * @property StandardAxes
 	 */
-	Gamepad.StandardAxes = ['LEFT_STICK_X', 'LEFT_STICK_Y', 'RIGHT_STICK_X', 'RIGHT_STICK_Y'];
+	apppad.StandardAxes = ['LEFT_STICK_X', 'LEFT_STICK_Y', 'RIGHT_STICK_X', 'RIGHT_STICK_Y'];
 
 	var getControlName = function(names, index, extraPrefix) {
 		return (index < names.length) ? names[index] : extraPrefix + (index - names.length + 1);
@@ -447,7 +447,7 @@
 	 *
 	 * @property StandardMapping
 	 */
-	Gamepad.StandardMapping = {
+	apppad.StandardMapping = {
 		env: {},
 		buttons: {
 			byButton: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
@@ -458,7 +458,7 @@
 	};
 
 	/**
-	 * Mapping of various gamepads that differ from the standard mapping on
+	 * Mapping of various apppads that differ from the standard mapping on
 	 * different platforms too unify their buttons and axes.
 	 *
 	 * Each mapping should have an 'env' object, which describes the environment
@@ -470,12 +470,12 @@
 	 *
 	 * @property Mappings
 	 */
-	Gamepad.Mappings = [
+	apppad.Mappings = [
 		// PS3 controller on Firefox
 		{
 			env: {
 				platform: FirefoxPlatform.getType(),
-				type: Gamepad.Type.PLAYSTATION
+				type: apppad.Type.PLAYSTATION
 			},
 			buttons: {
 				byButton: [14, 13, 15, 12, 10, 11, 8, 9, 0, 3, 1, 2, 4, 6, 7, 5, 16]
@@ -484,11 +484,11 @@
 				byAxis: [0, 1, 2, 3]
 			}
 		},
-		// Logitech gamepad on WebKit
+		// Logitech apppad on WebKit
 		{
 			env: {
 				platform: WebKitPlatform.getType(),
-				type: Gamepad.Type.LOGITECH
+				type: apppad.Type.LOGITECH
 			},
 			buttons: { // TODO: This can't be right - LEFT/RIGHT_STICK have same mappings as HOME/DPAD_UP
 				byButton: [1, 2, 0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13, 14, 10]
@@ -497,11 +497,11 @@
 				byAxis: [0, 1, 2, 3]
 			}
 		},
-		// Logitech gamepad on Firefox
+		// Logitech apppad on Firefox
 		{
 			env: {
 				platform: FirefoxPlatform.getType(),
-				type: Gamepad.Type.LOGITECH
+				type: apppad.Type.LOGITECH
 			},
 			buttons: {
 				byButton: [0, 1, 2, 3, 4, 5, -1, -1, 6, 7, 8, 9, 11, 12, 13, 14, 10],
@@ -516,15 +516,15 @@
 	];
 
 	/**
-	 * Initializes the gamepad.
+	 * Initializes the apppad.
 	 *
 	 * You usually want to bind to the events first and then initialize it.
 	 *
 	 * @method init
 	 * @return {Boolean} true if a supporting platform was detected, false otherwise.
 	 */
-	Gamepad.prototype.init = function() {
-		var platform = Gamepad.resolvePlatform(this);
+	apppad.prototype.init = function() {
+		var platform = apppad.resolvePlatform(this);
 		var that = this;
 
 		this.platform = platform;
@@ -536,14 +536,14 @@
 	};
 
 	/**
-	 * Binds a listener to a gamepad event.
+	 * Binds a listener to a apppad event.
 	 *
 	 * @method bind
-	 * @param {String} event Event to bind to, one of Gamepad.Event..
+	 * @param {String} event Event to bind to, one of apppad.Event..
 	 * @param {Function} listener Listener to call when given event occurs
-	 * @return {Gamepad} Self
+	 * @return {apppad} Self
 	 */
-	Gamepad.prototype.bind = function(event, listener) {
+	apppad.prototype.bind = function(event, listener) {
 		if (typeof(this.listeners[event]) === 'undefined') {
 			this.listeners[event] = [];
 		}
@@ -564,7 +564,7 @@
 	 * @param {Function} [listener] The listener function to remove
 	 * @return {Boolean} Was unbinding the listener successful
 	 */
-	Gamepad.prototype.unbind = function(type, listener) {
+	apppad.prototype.unbind = function(type, listener) {
 		if (typeof(type) === 'undefined') {
 			this.listeners = {};
 
@@ -593,24 +593,24 @@
 	};
 
 	/**
-	 * Returns the number of connected gamepads.
+	 * Returns the number of connected apppads.
 	 *
 	 * @method count
 	 * @return {Number}
 	 */
-	Gamepad.prototype.count = function() {
-		return this.gamepads.length;
+	apppad.prototype.count = function() {
+		return this.apppads.length;
 	};
 
 	/**
 	 * Fires an internal event with given data.
 	 *
 	 * @method _fire
-	 * @param {String} event Event to fire, one of Gamepad.Event..
+	 * @param {String} event Event to fire, one of apppad.Event..
 	 * @param {*} data Data to pass to the listener
 	 * @private
 	 */
-	Gamepad.prototype._fire = function(event, data) {
+	apppad.prototype._fire = function(event, data) {
 		if (typeof(this.listeners[event]) === 'undefined') {
 			return;
 		}
@@ -625,7 +625,7 @@
 	 * @static
 	 * @return {Object} a platform that does not support anything
 	 */
-	Gamepad.getNullPlatform = function() {
+	apppad.getNullPlatform = function() {
 		return Object.create(nullPlatform);
 	};
 
@@ -637,47 +637,47 @@
 	 * @param listener {Object} the listener to handle _connect() or _disconnect() calls
 	 * @return {Object} A platform instance
 	 */
-	Gamepad.resolvePlatform = function(listener) {
+	apppad.resolvePlatform = function(listener) {
 		var platform = nullPlatform;
 		var i;
 
-		for (i = 0; !platform.isSupported() && (i < Gamepad.PlatformFactories.length); i++) {
-			platform = Gamepad.PlatformFactories[i](listener);
+		for (i = 0; !platform.isSupported() && (i < apppad.PlatformFactories.length); i++) {
+			platform = apppad.PlatformFactories[i](listener);
 		}
 
 		return platform;
 	};
 
 	/**
-	 * Registers given gamepad.
+	 * Registers given apppad.
 	 *
 	 * @method _connect
-	 * @param {Object} gamepad Gamepad to connect to
+	 * @param {Object} apppad apppad to connect to
 	 * @private
 	 */
-	Gamepad.prototype._connect = function(gamepad) {
-		var mapping = this._resolveMapping(gamepad);
+	apppad.prototype._connect = function(apppad) {
+		var mapping = this._resolveMapping(apppad);
 		var count;
 		var i;
 
-		//gamepad.mapping = this._resolveMapping(gamepad);
-		gamepad.state = {};
-		gamepad.lastState = {};
-		gamepad.updater = [];
+		//apppad.mapping = this._resolveMapping(apppad);
+		apppad.state = {};
+		apppad.lastState = {};
+		apppad.updater = [];
 
 		count = mapping.buttons.byButton.length;
 		for (i = 0; i < count; i++) {
-			this._addButtonUpdater(gamepad, mapping, i);
+			this._addButtonUpdater(apppad, mapping, i);
 		}
 
 		count = mapping.axes.byAxis.length;
 		for (i = 0; i < count; i++) {
-			this._addAxisUpdater(gamepad, mapping, i);
+			this._addAxisUpdater(apppad, mapping, i);
 		}
 
-		this.gamepads[gamepad.index] = gamepad;
+		this.apppads[apppad.index] = apppad;
 
-		this._fire(Gamepad.Event.CONNECTED, gamepad);
+		this._fire(apppad.Event.CONNECTED, apppad);
 	};
 
 	/**
@@ -685,45 +685,45 @@
 	 *
 	 * @method _addButtonUpdater
 	 * @private
-	 * @param {Object} gamepad the gamepad for which to create the updater
+	 * @param {Object} apppad the apppad for which to create the updater
 	 * @param {Object} mapping the mapping on which to work on
 	 * @param {Number} index button index
 	 */
-	Gamepad.prototype._addButtonUpdater = function(gamepad, mapping, index) {
+	apppad.prototype._addButtonUpdater = function(apppad, mapping, index) {
 		var updater = nullFunction;
-		var controlName = getControlName(Gamepad.StandardButtons, index, 'EXTRA_BUTTON_');
-		var getter = this._createButtonGetter(gamepad, mapping.buttons, index);
+		var controlName = getControlName(apppad.StandardButtons, index, 'EXTRA_BUTTON_');
+		var getter = this._createButtonGetter(apppad, mapping.buttons, index);
 		var that = this;
 		var buttonEventData = {
-			gamepad: gamepad,
+			apppad: apppad,
 			control: controlName
 		};
 
-		gamepad.state[controlName] = 0;
-		gamepad.lastState[controlName] = 0;
+		apppad.state[controlName] = 0;
+		apppad.lastState[controlName] = 0;
 
 		updater = function() {
 			var value = getter();
-			var lastValue = gamepad.lastState[controlName];
+			var lastValue = apppad.lastState[controlName];
 			var isDown = value > 0.5;
 			var wasDown = lastValue > 0.5;
 
-			gamepad.state[controlName] = value;
+			apppad.state[controlName] = value;
 
 			if (isDown && !wasDown) {
-				that._fire(Gamepad.Event.BUTTON_DOWN, Object.create(buttonEventData));
+				that._fire(apppad.Event.BUTTON_DOWN, Object.create(buttonEventData));
 			} else if (!isDown && wasDown) {
-				that._fire(Gamepad.Event.BUTTON_UP, Object.create(buttonEventData));
+				that._fire(apppad.Event.BUTTON_UP, Object.create(buttonEventData));
 			}
 
 			if ((value !== 0) && (value !== 1) && (value !== lastValue)) {
-				that._fireAxisChangedEvent(gamepad, controlName, value);
+				that._fireAxisChangedEvent(apppad, controlName, value);
 			}
 
-			gamepad.lastState[controlName] = value;
+			apppad.lastState[controlName] = value;
 		};
 
-		gamepad.updater.push(updater);
+		apppad.updater.push(updater);
 	};
 
 	/**
@@ -731,68 +731,68 @@
 	 *
 	 * @method _addAxisUpdater
 	 * @private
-	 * @param {Object} gamepad the gamepad for which to create the updater
+	 * @param {Object} apppad the apppad for which to create the updater
 	 * @param {Object} mapping the mapping on which to work on
 	 * @param {Number} index axis index
 	 */
-	Gamepad.prototype._addAxisUpdater = function(gamepad, mapping, index) {
+	apppad.prototype._addAxisUpdater = function(apppad, mapping, index) {
 		var updater = nullFunction;
-		var controlName = getControlName(Gamepad.StandardAxes, index, 'EXTRA_AXIS_');
-		var getter = this._createAxisGetter(gamepad, mapping.axes, index);
+		var controlName = getControlName(apppad.StandardAxes, index, 'EXTRA_AXIS_');
+		var getter = this._createAxisGetter(apppad, mapping.axes, index);
 		var that = this;
 
-		gamepad.state[controlName] = 0;
-		gamepad.lastState[controlName] = 0;
+		apppad.state[controlName] = 0;
+		apppad.lastState[controlName] = 0;
 
 		updater = function() {
 			var value = getter();
-			var lastValue = gamepad.lastState[controlName];
+			var lastValue = apppad.lastState[controlName];
 
-			gamepad.state[controlName] = value;
+			apppad.state[controlName] = value;
 
 			if ((value !== lastValue)) {
-				that._fireAxisChangedEvent(gamepad, controlName, value);
+				that._fireAxisChangedEvent(apppad, controlName, value);
 			}
 
-			gamepad.lastState[controlName] = value;
+			apppad.lastState[controlName] = value;
 		};
 
-		gamepad.updater.push(updater);
+		apppad.updater.push(updater);
 	};
 
 	/**
 	 * Fires an AXIS_CHANGED event
 	 * @method _fireAxisChangedEvent
 	 * @private
-	 * @param {Object} gamepad the gamepad to notify for
+	 * @param {Object} apppad the apppad to notify for
 	 * @param {String} controlName name of the control that changes its value
 	 * @param {Number} value the new value
 	 */
-	Gamepad.prototype._fireAxisChangedEvent = function(gamepad, controlName, value) {
+	apppad.prototype._fireAxisChangedEvent = function(apppad, controlName, value) {
 		var eventData = {
-			gamepad: gamepad,
+			apppad: apppad,
 			axis: controlName,
 			value: value
 		};
 
-		this._fire(Gamepad.Event.AXIS_CHANGED, eventData);
+		this._fire(apppad.Event.AXIS_CHANGED, eventData);
 	};
 
 	/**
 	 * Creates a getter according to the mapping entry for the specific index.
 	 * Currently supported entries:
 	 *
-	 * buttons.byButton[index]: Number := Index into gamepad.buttons; -1 tests byAxis
-	 * buttons.byAxis[index]: Array := [Index into gamepad.axes; Zero Value, One Value]
+	 * buttons.byButton[index]: Number := Index into apppad.buttons; -1 tests byAxis
+	 * buttons.byAxis[index]: Array := [Index into apppad.axes; Zero Value, One Value]
 	 *
 	 * @method _createButtonGetter
 	 * @private
-	 * @param {Object} gamepad the gamepad for which to create a getter
+	 * @param {Object} apppad the apppad for which to create a getter
 	 * @param {Object} buttons the mappings entry for the buttons
 	 * @param {Number} index the specific button entry
 	 * @return {Function} a getter returning the value for the requested button
 	 */
-	Gamepad.prototype._createButtonGetter = (function() {
+	apppad.prototype._createButtonGetter = (function() {
 		var nullGetter = function() {
 			return 0;
 		};
@@ -827,23 +827,23 @@
 			return Object.prototype.toString.call(thing) === '[object Array]';
 		};
 
-		return function(gamepad, buttons, index) {
+		return function(apppad, buttons, index) {
 			var getter = nullGetter;
 			var entry;
 			var that = this;
 
 			entry = buttons.byButton[index];
 			if (entry !== -1) {
-				if ((typeof(entry) === 'number') && (entry < gamepad.buttons.length)) {
+				if ((typeof(entry) === 'number') && (entry < apppad.buttons.length)) {
 					getter = function() {
-						return gamepad.buttons[entry];
+						return apppad.buttons[entry];
 					};
 				}
 			} else if (buttons.byAxis && (index < buttons.byAxis.length)) {
 				entry = buttons.byAxis[index];
-				if (isArray(entry) && (entry.length == 3) && (entry[0] < gamepad.axes.length)) {
+				if (isArray(entry) && (entry.length == 3) && (entry[0] < apppad.axes.length)) {
 					getter = function() {
-						var value = gamepad.axes[entry[0]];
+						var value = apppad.axes[entry[0]];
 
 						return that._applyDeadzoneMaximize(value);
 					};
@@ -860,30 +860,30 @@
 	 * Creates a getter according to the mapping entry for the specific index.
 	 * Currently supported entries:
 	 *
-	 * axes.byAxis[index]: Number := Index into gamepad.axes; -1 ignored
+	 * axes.byAxis[index]: Number := Index into apppad.axes; -1 ignored
 	 *
 	 * @method _createAxisGetter
 	 * @private
-	 * @param {Object} gamepad the gamepad for which to create a getter
+	 * @param {Object} apppad the apppad for which to create a getter
 	 * @param {Object} axes the mappings entry for the axes
 	 * @param {Number} index the specific axis entry
 	 * @return {Function} a getter returning the value for the requested axis
 	 */
-	Gamepad.prototype._createAxisGetter = (function() {
+	apppad.prototype._createAxisGetter = (function() {
 		var nullGetter = function() {
 			return 0;
 		};
 
-		return function(gamepad, axes, index) {
+		return function(apppad, axes, index) {
 			var getter = nullGetter;
 			var entry;
 			var that = this;
 
 			entry = axes.byAxis[index];
 			if (entry !== -1) {
-				if ((typeof(entry) === 'number') && (entry < gamepad.axes.length)) {
+				if ((typeof(entry) === 'number') && (entry < apppad.axes.length)) {
 					getter = function() {
-						var value = gamepad.axes[entry];
+						var value = apppad.axes[entry];
 
 						return that._applyDeadzoneMaximize(value);
 					};
@@ -895,29 +895,29 @@
 	})();
 
 	/**
-	 * Disconnects from given gamepad.
+	 * Disconnects from given apppad.
 	 *
 	 * @method _disconnect
-	 * @param {Object} gamepad Gamepad to disconnect
+	 * @param {Object} apppad apppad to disconnect
 	 * @private
 	 */
-	Gamepad.prototype._disconnect = function(gamepad) {
-		var newGamepads = [],
+	apppad.prototype._disconnect = function(apppad) {
+		var newapppads = [],
 			i;
 
-		if (typeof(this.gamepads[gamepad.index]) !== 'undefined') {
-			delete this.gamepads[gamepad.index];
+		if (typeof(this.apppads[apppad.index]) !== 'undefined') {
+			delete this.apppads[apppad.index];
 		}
 
-		for (i = 0; i < this.gamepads.length; i++) {
-			if (typeof(this.gamepads[i]) !== 'undefined') {
-				newGamepads[i] = this.gamepads[i];
+		for (i = 0; i < this.apppads.length; i++) {
+			if (typeof(this.apppads[i]) !== 'undefined') {
+				newapppads[i] = this.apppads[i];
 			}
 		}
 
-		this.gamepads = newGamepads;
+		this.apppads = newapppads;
 
-		this._fire(Gamepad.Event.DISCONNECTED, gamepad);
+		this._fire(apppad.Event.DISCONNECTED, apppad);
 	};
 
 	/**
@@ -925,48 +925,48 @@
 	 *
 	 * @method _resolveControllerType
 	 * @param {String} id Controller id
-	 * @return {String} Controller type, one of Gamepad.Type
+	 * @return {String} Controller type, one of apppad.Type
 	 * @private
 	 */
-	Gamepad.prototype._resolveControllerType = function(id) {
+	apppad.prototype._resolveControllerType = function(id) {
 		id = id.toLowerCase();
 
 		if (id.indexOf('playstation') !== -1) {
-			return Gamepad.Type.PLAYSTATION;
+			return apppad.Type.PLAYSTATION;
 		} else if (
-			id.indexOf('logitech') !== -1 || id.indexOf('wireless gamepad') !== -1) {
-			return Gamepad.Type.LOGITECH;
+			id.indexOf('logitech') !== -1 || id.indexOf('wireless apppad') !== -1) {
+			return apppad.Type.LOGITECH;
 		} else if (id.indexOf('xbox') !== -1 || id.indexOf('360') !== -1) {
-			return Gamepad.Type.XBOX;
+			return apppad.Type.XBOX;
 		} else {
-			return Gamepad.Type.UNKNOWN;
+			return apppad.Type.UNKNOWN;
 		}
 	};
 
 	/**
 	 * @method _resolveMapping
 	 * @private
-	 * @param {Object} gamepad the gamepad for which to resolve the mapping
-	 * @return {Object} a mapping object for the given gamepad
+	 * @param {Object} apppad the apppad for which to resolve the mapping
+	 * @return {Object} a mapping object for the given apppad
 	 */
-	Gamepad.prototype._resolveMapping = function(gamepad) {
-		var mappings = Gamepad.Mappings;
+	apppad.prototype._resolveMapping = function(apppad) {
+		var mappings = apppad.Mappings;
 		var mapping = null;
 		var env = {
 			platform: this.platform.getType(),
-			type: this._resolveControllerType(gamepad.id)
+			type: this._resolveControllerType(apppad.id)
 		};
 		var i;
 		var test;
 
 		for (i = 0; !mapping && (i < mappings.length); i++) {
 			test = mappings[i];
-			if (Gamepad.envMatchesFilter(test.env, env)) {
+			if (apppad.envMatchesFilter(test.env, env)) {
 				mapping = test;
 			}
 		}
 
-		return mapping || Gamepad.StandardMapping;
+		return mapping || apppad.StandardMapping;
 	};
 
 	/**
@@ -976,7 +976,7 @@
 	 * @param {Object} env the environment object that is matched against filter
 	 * @return {Boolean} true if env is covered by filter
 	 */
-	Gamepad.envMatchesFilter = function(filter, env) {
+	apppad.envMatchesFilter = function(filter, env) {
 		var result = true;
 		var field;
 
@@ -995,19 +995,19 @@
 	 * @method _update
 	 * @private
 	 */
-	Gamepad.prototype._update = function() {
+	apppad.prototype._update = function() {
 		this.platform.update();
 
-		this.gamepads.forEach(function(gamepad) {
-			if (gamepad) {
-				gamepad.updater.forEach(function(updater) {
+		this.apppads.forEach(function(apppad) {
+			if (apppad) {
+				apppad.updater.forEach(function(updater) {
 					updater();
 				});
 			}
 		});
 
-		if (this.gamepads.length > 0) {
-			this._fire(Gamepad.Event.TICK, this.gamepads);
+		if (this.apppads.length > 0) {
+			this._fire(apppad.Event.TICK, this.apppads);
 		}
 	},
 
@@ -1022,7 +1022,7 @@
 	 * @param {Number} [maximizeThreshold] From which value to maximize value
 	 * @private
 	 */
-	Gamepad.prototype._applyDeadzoneMaximize = function(
+	apppad.prototype._applyDeadzoneMaximize = function(
 		value,
 		deadzone,
 		maximizeThreshold) {
@@ -1046,6 +1046,6 @@
 		return value;
 	};
 
-	exports.Gamepad = Gamepad;
+	exports.apppad = apppad;
 
 })(((typeof(module) !== 'undefined') && module.exports) || window);

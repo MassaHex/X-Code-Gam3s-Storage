@@ -2,7 +2,7 @@
  * A timed events library derived from Full Screen Mario
  * This has two functions:
  * 1. Provide a flexible alternative to setTimeout and setInterval that
- *    respects pauses and resumes in time (such as from game pauses)
+ *    respects pauses and resumes in time (such as from app pauses)
  * 2. Provide functions to automatically 'cycle' between certain classes
  *    on an object
 */
@@ -14,7 +14,7 @@ function EventHandlr(settings) {
   */
   var version = "1.0",
       
-      // The current (most recently reached) game time
+      // The current (most recently reached) app time
       time,
   
       // An int->event hash table of events to be run

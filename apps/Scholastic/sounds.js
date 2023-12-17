@@ -50,9 +50,9 @@ function playLocal(name, xloc, main) {
   if(!sound || !window.mario) return;
   
   // If it's out of bounds (or muted), the volume is 0
-  if(muted || xloc < 0 || xloc > gamescreen.unitwidth) volume_real = 0;
+  if(muted || xloc < 0 || xloc > appscreen.unitwidth) volume_real = 0;
   // Otherwise it's a function of how far the thing is from Mario
-  else volume_real = max(.14, min(.84, 1.4 * (gamescreen.unitwidth - abs(xloc - mario.left)) / gamescreen.unitwidth));
+  else volume_real = max(.14, min(.84, 1.4 * (appscreen.unitwidth - abs(xloc - mario.left)) / appscreen.unitwidth));
   
   sound.volume = volume_real;
   sound.volume_real = volume_real;

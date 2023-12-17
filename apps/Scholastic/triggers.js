@@ -15,11 +15,11 @@ function resetTriggers() {
     q:      [81]                                                         // q
   });
   
-  // Gamepad.js support for joysticks and controllers
-  window.gamepad = new Gamepad();
-  gamepad.bind(Gamepad.Event.BUTTON_DOWN, ControlsPipe("keydown", true));
-  gamepad.bind(Gamepad.Event.BUTTON_UP, ControlsPipe("keyup", false));
-  gamepad.bind(Gamepad.Event.AXIS_CHANGED, function(event) {
+  // apppad.js support for joysticks and controllers
+  window.apppad = new apppad();
+  apppad.bind(apppad.Event.BUTTON_DOWN, ControlsPipe("keydown", true));
+  apppad.bind(apppad.Event.BUTTON_UP, ControlsPipe("keyup", false));
+  apppad.bind(apppad.Event.AXIS_CHANGED, function(event) {
     var value = event.value,
         value_abs = abs(value);
     
@@ -57,7 +57,7 @@ function resetTriggers() {
     }
   });
 
-  gamepad.init();
+  apppad.init();
 
   // Set the key events on the body
   proliferate(body, {
@@ -72,7 +72,7 @@ function resetTriggers() {
 }
 
 // Hash table for onkeydown and onkeyup
-function Controls(pipes, gamepadPipes) {
+function Controls(pipes, apppadPipes) {
   // Pipes is a listing of which actions are piped to by which character codes
   this.pipes = pipes;
 
@@ -195,7 +195,7 @@ function ControlsPipe(name, strict) {
     else mlog(name, "Could not", name,  event);
 
     // Record this in the history
-    window.gamehistory[gamecount] = [keydown, event];
+    window.apphistory[appcount] = [keydown, event];
   };
 }
 
@@ -208,7 +208,7 @@ function keydown(event) {
   if(responses[event])
       responses[event](mario.keys);
 
-  window.gamehistory[gamecount] = [keydown, event];
+  window.apphistory[appcount] = [keydown, event];
 }
 
 function keyup(event) {
@@ -220,7 +220,7 @@ function keyup(event) {
   if(responses[event])
       responses[event](mario.keys);
 
-  window.gamehistory[gamecount] = [keyup, event];
+  window.apphistory[appcount] = [keyup, event];
 }
 
 function contextmenu(event) {
