@@ -42,7 +42,6 @@ function startapp() {
   resetCanvas();
   resetMaps();
   resetScenery();
-  resetTriggers();
   resetSeed();
   resetSounds();
   
